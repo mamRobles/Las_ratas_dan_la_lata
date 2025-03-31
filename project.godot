@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="Las ratas dan la lata"
+run/main_scene="uid://dh62hwqkxcqix"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
