@@ -12,3 +12,8 @@ func _on_opciones_boton_pressed() -> void:
 	print("Botón opciones")
 	get_tree().change_scene_to_file("res://MDO.tscn")
 	pass # Replace with function body.
+
+
+func _on_salirboton_pressed() -> void:
+	get_tree().quit(0)
+	pass # Replace with function body.
