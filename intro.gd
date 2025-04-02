@@ -8,6 +8,14 @@ func _ready():
 	#Contenedor vertical
 	var contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer")
 	
+	#Atributo style de las etiquetas con los nombres
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color8(0, 120, 80)  #Color de la caja
+	style.corner_radius_top_left = 10    #Redondear bordes
+	style.corner_radius_top_right = 10
+	style.corner_radius_bottom_left = 10
+	style.corner_radius_bottom_right = 10
+		
 	#Para cada jugador
 	for i in range(raiz.num_jugadores):
 		#Se crea un nodo Label
@@ -18,17 +26,8 @@ func _ready():
 		nombre.text = raiz.nombres_jugadores[i]
 		#Se añade el nodo al contenedor
 		contenedor.add_child(nombre) 
-		#Separación entre los hijos del contenedor
-		contenedor.add_theme_constant_override("separation", 50)
 		
-		#Atributo style de la Label
-		var style = StyleBoxFlat.new()
-		style.bg_color = Color8(0, 120, 80)  #Color de la caja
-		style.corner_radius_top_left = 10    #Redondear bordes
-		style.corner_radius_top_right = 10
-		style.corner_radius_bottom_left = 10
-		style.corner_radius_bottom_right = 10
-		#Se añade el atributo style 
+		#Se añade el atributo style a la etiqueta
 		nombre.add_theme_stylebox_override("normal", style)
 		
 		#Centrar el texto dentro de la Label

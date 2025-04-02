@@ -1,13 +1,8 @@
 extends Control
 
-#var num_jugadores:int = 0
-#var nombres_jugadores = []
-
-
 func _on_2PJ_pressed() -> void:
 	raiz.num_jugadores = 2
 	setNombresJugadores()
-
 
 func _on_3PJ_pressed() -> void:
 	raiz.num_jugadores = 3
@@ -17,7 +12,6 @@ func _on_4PJ_pressed() -> void:
 	raiz.num_jugadores = 4
 	setNombresJugadores()
 	
-
 func setNombresJugadores() -> void:
 	#Contenedor con los nodos LineEdit
 	var contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2")
@@ -29,6 +23,14 @@ func setNombresJugadores() -> void:
 		for child in contenedor.get_children(): 
 			child.queue_free() 
 	
+	#Atributo style de los objetos LineEdit
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color8(0, 120, 80)  #Color de la caja
+	style.corner_radius_top_left = 10    #Redondear bordes
+	style.corner_radius_top_right = 10
+	style.corner_radius_bottom_left = 10
+	style.corner_radius_bottom_right = 10
+	
 	#Para cada jugador
 	for i in range(raiz.num_jugadores):
 		#Se crea un nodo LineEdit
@@ -37,20 +39,10 @@ func setNombresJugadores() -> void:
 		input_field.name = "NombreInput" + str(i+1) 
 		#Se añade el nodo al contenedor
 		contenedor.add_child(input_field) 
-		#Separación entre los hijos del contenedor
-		contenedor.add_theme_constant_override("separation", 20)
 		
-		#Atributo style del LineEdit
-		var style = StyleBoxFlat.new()
-		style.bg_color = Color8(0, 120, 80)  #Color de la caja
-		style.corner_radius_top_left = 10    #Redondear bordes
-		style.corner_radius_top_right = 10
-		style.corner_radius_bottom_left = 10
-		style.corner_radius_bottom_right = 10
-		#Se añade el atributo style (normal, seleccionado, cursor encima)
+		#Se añade el atributo style (normal, seleccionado)
 		input_field.add_theme_stylebox_override("normal", style)
 		input_field.add_theme_stylebox_override("focus", style)
-		input_field.add_theme_stylebox_override("hover", style)
 		
 		#Texto en el recuadro antes de introducir un nombre
 		input_field.alignment = HORIZONTAL_ALIGNMENT_CENTER
