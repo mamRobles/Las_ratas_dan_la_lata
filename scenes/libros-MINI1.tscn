@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3ys02ajcg6q"]
+
+[ext_resource type="Texture2D" uid="uid://si6784ds3upp" path="res://sprites/libros1-MINI1.png" id="1_y6ums"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow263"]
+size = Vector2(368, 216)
+
+[node name="libros" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.00434e-05, 4)
+scale = Vector2(1.01939, 1.03349)
+texture = ExtResource("1_y6ums")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_ow263")
