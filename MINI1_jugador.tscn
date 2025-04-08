@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dm2tmk4shr1vx"]
+[gd_scene load_steps=22 format=3 uid="uid://dm2tmk4shr1vx"]
 
 [ext_resource type="Texture2D" uid="uid://pi82mnverln7" path="res://Sprites/rat.png" id="1_nr0b5"]
 [ext_resource type="Script" uid="uid://cgkqfc4db1sn3" path="res://mini1_jugador.gd" id="1_p5gs6"]
+[ext_resource type="Texture2D" uid="uid://mkiyagmybkyx" path="res://Sprites/mouse.png" id="3_kwwly"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5gs6"]
 atlas = ExtResource("1_nr0b5")
@@ -15,6 +16,18 @@ region = Rect2(64, 32, 32, 32)
 atlas = ExtResource("1_nr0b5")
 region = Rect2(0, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6o54"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sj0a"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5yow"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(64, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_txs17"]
 atlas = ExtResource("1_nr0b5")
 region = Rect2(32, 96, 32, 32)
@@ -27,13 +40,33 @@ region = Rect2(0, 96, 32, 32)
 atlas = ExtResource("1_nr0b5")
 region = Rect2(64, 96, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkyvs"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qutav"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvn57"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(64, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f45f5"]
 atlas = ExtResource("1_nr0b5")
 region = Rect2(32, 32, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uejql"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(64, 32, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mugjy"]
 atlas = ExtResource("1_nr0b5")
 region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1tkf"]
+atlas = ExtResource("3_kwwly")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f45f5"]
 animations = [{
@@ -56,6 +89,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_s6o54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sj0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5yow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sj0a")
+}],
+"loop": true,
+"name": &"derecha_escondido",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_txs17")
 }, {
 "duration": 1.0,
@@ -73,6 +123,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lkyvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qutav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvn57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qutav")
+}],
+"loop": true,
+"name": &"izquierda_escondido",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f45f5")
 }],
 "loop": true,
@@ -81,10 +148,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uejql")
+}],
+"loop": true,
+"name": &"parado_derecha_escondido",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mugjy")
 }],
 "loop": true,
 "name": &"parado_izquierda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1tkf")
+}],
+"loop": true,
+"name": &"parado_izquierda_escondido",
 "speed": 5.0
 }]
 
@@ -97,7 +180,7 @@ script = ExtResource("1_p5gs6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_f45f5")
-animation = &"parado_izquierda"
+animation = &"parado_derecha_escondido"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -0.5)
