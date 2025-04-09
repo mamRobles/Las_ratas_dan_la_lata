@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://i08rsalytc21"]
+
+[ext_resource type="Script" uid="uid://buo22v4ingqqm" path="res://escenario-MINI1.gd" id="1_5id6t"]
+[ext_resource type="PackedScene" uid="uid://clyotws51in8w" path="res://suelo-MINI1.tscn" id="2_5id6t"]
+[ext_resource type="Texture2D" uid="uid://dsmua3x7fwvtr" path="res://sprites/fondo-MINI1.jpg" id="2_i2fuo"]
+[ext_resource type="Texture2D" uid="uid://b24mm0k612q1r" path="res://rata-MDI.png" id="4_i2fuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u83fo"]
+size = Vector2(120, 72)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5id6t")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.886154, 0.747405)
+texture = ExtResource("2_i2fuo")
+
+[node name="suelo" parent="." instance=ExtResource("2_5id6t")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="rata" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="rata"]
+z_index = 10
+position = Vector2(100, 564)
+scale = Vector2(0.134831, 0.207493)
+texture = ExtResource("4_i2fuo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rata"]
+position = Vector2(100, 564)
+shape = SubResource("RectangleShape2D_u83fo")
