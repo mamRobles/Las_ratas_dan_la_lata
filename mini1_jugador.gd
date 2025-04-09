@@ -2,6 +2,7 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var accion =0 # sirve para saber si la última tecla pulsada es derecha o izquierda
 					   # y así definir la animación idle
+var escondido:bool = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("UI_izquierda", "UI_derecha")
+	var direction := Input.get_axis("UI_iz	quierda", "UI_derecha")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
