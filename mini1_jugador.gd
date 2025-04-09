@@ -7,6 +7,9 @@ var escondido:bool = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+func _ready() -> void:
+	_animated_sprite.play("parado_derecha")
+	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -18,7 +21,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("UI_iz	quierda", "UI_derecha")
+	var direction := Input.get_axis("UI_izquierda", "UI_derecha")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -30,12 +33,24 @@ func _physics_process(delta: float) -> void:
 func _process(_delta):
 	if Input.is_action_pressed("UI_derecha"):
 		accion=1
-		_animated_sprite.play("derecha")
+		if Mini1Jugador.escondido:
+			_animated_sprite.play("derecha_escondido")
+		else:
+			_animated_sprite.play("derecha")
 	else: if Input.is_action_pressed("UI_izquierda"):
 		accion=0
-		_animated_sprite.play("izquierda")
+		if Mini1Jugador.escondido:
+			_animated_sprite.play("izquierda_escondido")
+		else:
+			_animated_sprite.play("izquierda")
 	else:
 		if (accion):
-			_animated_sprite.play("parado_derecha")
+			if Mini1Jugador.escondido:
+				_animated_sprite.play("parado_derecha_escondido")
+			else:
+				_animated_sprite.play("parado_derecha")
 		else:
-			_animated_sprite.play("parado_izquierda")
+			if Mini1Jugador.escondido:
+				_animated_sprite.play("parado_izquierda_escondido")
+			else:
+				_animated_sprite.play("parado_izquierda")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bspft57ly7yy4" path="res://sprites/suelo-MINI1.png" id="1_cyh3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v4vm"]
-size = Vector2(2304, 152)
+size = Vector2(2304, 72)
 
 [node name="plataforma" type="StaticBody2D"]
 
@@ -14,5 +14,5 @@ texture = ExtResource("1_cyh3f")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1152, 572)
+position = Vector2(1152, 612)
 shape = SubResource("RectangleShape2D_1v4vm")

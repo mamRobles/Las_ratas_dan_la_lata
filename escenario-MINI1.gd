@@ -32,7 +32,7 @@ func _process(delta):
 	#Mover la cámara, el fondo, el jugador e incrementar el offset
 	$Camera2D.position.x += SPEED
 	$Fondo.position.x += SPEED
-	$rata.position.x += SPEED
+	#$rata.position.x += SPEED
 	offset += SPEED
 	
 	#Si la camara avanza mucho, mueve el suelo
@@ -92,13 +92,13 @@ func remove_esc(esc):
 
 #Si un body entra en el escondite
 func entrar_escondite(body):
-	if body.name == "rata":		#Si es un jugador
-		escondido = true
+	if body.name == "MINI1_Jugador":		#Si es un jugador
+		Mini1Jugador.escondido = true
 		print("La rata esta escondida (rata cobarde)")
 
 #Si un body sale del escondite
 func salir_escondite(body):
-	if body.name == "rata":		#Si es un jugador
-		escondido = false
+	if body.name == "MINI1_Jugador":		#Si es un jugador
+		Mini1Jugador.escondido  = false
 		print("La rata ya NO esta escondida (ojala te coman)")
 	

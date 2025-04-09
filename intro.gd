@@ -1,6 +1,6 @@
 extends Control
 
-@onready var label: Label = $PanelContainer/MarginContainer/VBoxContainer/Label
+@onready var label: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/Label
 
 func _ready():
 	label.text = "¡Van a jugar " + str(raiz.num_jugadores) + " ratas!"
@@ -35,3 +35,7 @@ func _ready():
 		nombre.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		#Tamaño mínimo de la Label
 		nombre.custom_minimum_size = Vector2(150, 50)
+
+
+func _on_jugar_pressed() -> void:
+	get_tree().change_scene_to_file("res://escenario-MINI1.tscn")
