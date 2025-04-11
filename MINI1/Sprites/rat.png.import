@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pi82mnverln7"
-path="res://.godot/imported/rat.png-b4feedeba377c589e64819c816171b62.ctex"
+path="res://.godot/imported/rat.png-72956281c1a3d78b7890b0eada37cf12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/rat.png"
-dest_files=["res://.godot/imported/rat.png-b4feedeba377c589e64819c816171b62.ctex"]
+source_file="res://MINI1/Sprites/rat.png"
+dest_files=["res://.godot/imported/rat.png-72956281c1a3d78b7890b0eada37cf12.ctex"]
 
 [params]
 

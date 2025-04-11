@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxwxc1atnp0bp"]
 
-[ext_resource type="Script" uid="uid://c44i3h46e2nbb" path="res://mdo.gd" id="1_tvvv7"]
+[ext_resource type="Script" uid="uid://c44i3h46e2nbb" path="res://Inicio/Scripts/mdo.gd" id="1_tvvv7"]
 
 [node name="MDO" type="Control"]
 layout_mode = 3

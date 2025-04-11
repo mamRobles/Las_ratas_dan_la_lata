@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b24mm0k612q1r"
-path="res://.godot/imported/rata-MDI.png-3572a9dc57dad0fce15195f8f1023dcd.ctex"
+path="res://.godot/imported/rata-MDI.png-528de550c82f24426360b09553b1158d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rata-MDI.png"
-dest_files=["res://.godot/imported/rata-MDI.png-3572a9dc57dad0fce15195f8f1023dcd.ctex"]
+source_file="res://Inicio/Sprites/rata-MDI.png"
+dest_files=["res://.godot/imported/rata-MDI.png-528de550c82f24426360b09553b1158d.ctex"]
 
 [params]
 

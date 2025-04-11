@@ -1,9 +1,9 @@
 extends Node2D
 
 #Escondites
-var esc1_scene = preload("res://scenes/libros-MINI1.tscn")
-var esc2_scene = preload("res://scenes/planta-MINI1.tscn")
-var esc3_scene = preload("res://scenes/jarron-MINI1.tscn")
+var esc1_scene = preload("res://MINI1/Scenes/libros-MINI1.tscn")
+var esc2_scene = preload("res://MINI1/Scenes/planta-MINI1.tscn")
+var esc3_scene = preload("res://MINI1/Scenes/jarron-MINI1.tscn")
 var tipos_escondite := [esc1_scene, esc2_scene, esc3_scene]
 var escondites : Array
 
@@ -93,12 +93,12 @@ func remove_esc(esc):
 #Si un body entra en el escondite
 func entrar_escondite(body):
 	if body.name == "MINI1_Jugador":		#Si es un jugador
-		Mini1Jugador.escondido = true
+		MINI1.escondido = true
 		print("La rata esta escondida (rata cobarde)")
 
 #Si un body sale del escondite
 func salir_escondite(body):
 	if body.name == "MINI1_Jugador":		#Si es un jugador
-		Mini1Jugador.escondido  = false
+		MINI1.escondido  = false
 		print("La rata ya NO esta escondida (ojala te coman)")
 	

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byraxrhmpaym4"
-path="res://.godot/imported/planta-MINI1.png-fc2cd75086d320084ce207b45794ebda.ctex"
+path="res://.godot/imported/planta-MINI1.png-3df4ed7f833541f48ea1c795bc23e664.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/planta-MINI1.png"
-dest_files=["res://.godot/imported/planta-MINI1.png-fc2cd75086d320084ce207b45794ebda.ctex"]
+source_file="res://MINI1/Sprites/planta-MINI1.png"
+dest_files=["res://.godot/imported/planta-MINI1.png-3df4ed7f833541f48ea1c795bc23e664.ctex"]
 
 [params]
 

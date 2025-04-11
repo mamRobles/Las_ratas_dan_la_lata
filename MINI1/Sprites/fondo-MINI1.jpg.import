@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsmua3x7fwvtr"
-path="res://.godot/imported/fondo-MINI1.jpg-ac0758c1ea375404d6f875ec97384af1.ctex"
+path="res://.godot/imported/fondo-MINI1.jpg-64f77b4817a122e30ae86f7c4faf5cc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/fondo-MINI1.jpg"
-dest_files=["res://.godot/imported/fondo-MINI1.jpg-ac0758c1ea375404d6f875ec97384af1.ctex"]
+source_file="res://MINI1/Sprites/fondo-MINI1.jpg"
+dest_files=["res://.godot/imported/fondo-MINI1.jpg-64f77b4817a122e30ae86f7c4faf5cc4.ctex"]
 
 [params]
 

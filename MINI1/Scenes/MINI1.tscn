@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://frhopka7dpiw"]
+
+[ext_resource type="Script" uid="uid://cjee2r0wpppin" path="res://MINI1/Scripts/mini_1.gd" id="1_ynwnj"]
+
+[node name="MINI1" type="Node"]
+script = ExtResource("1_ynwnj")

@@ -1,15 +1,15 @@
 extends Control
 
 func _on_2PJ_pressed() -> void:
-	raiz.num_jugadores = 2
+	INICIO.num_jugadores = 2
 	setNombresJugadores()
 
 func _on_3PJ_pressed() -> void:
-	raiz.num_jugadores = 3
+	INICIO.num_jugadores = 3
 	setNombresJugadores()
 
 func _on_4PJ_pressed() -> void:
-	raiz.num_jugadores = 4
+	INICIO.num_jugadores = 4
 	setNombresJugadores()
 	
 func setNombresJugadores() -> void:
@@ -18,7 +18,7 @@ func setNombresJugadores() -> void:
 	
 	#Limpiar la lista de nombres y el contenedor
 	get_node("PanelContainer/MarginContainer/VBoxContainer/Button").disabled = true
-	raiz.nombres_jugadores.clear()
+	INICIO.nombres_jugadores.clear()
 	if contenedor.get_child_count() > 0:  
 		for child in contenedor.get_children(): 
 			child.queue_free() 
@@ -32,7 +32,7 @@ func setNombresJugadores() -> void:
 	style.corner_radius_bottom_right = 10
 	
 	#Para cada jugador
-	for i in range(raiz.num_jugadores):
+	for i in range(INICIO.num_jugadores):
 		#Se crea un nodo LineEdit
 		var input_field = LineEdit.new() 
 		#Nombre del nodo
@@ -57,11 +57,11 @@ func setNombresJugadores() -> void:
 
 
 func _name_entered(nombre: String) -> void:
-	raiz.nombres_jugadores.append(nombre)
+	INICIO.nombres_jugadores.append(nombre)
 	
-	if len(raiz.nombres_jugadores) == raiz.num_jugadores:
+	if len(INICIO.nombres_jugadores) == INICIO.num_jugadores:
 		get_node("PanelContainer/MarginContainer/VBoxContainer/Button").disabled = false
 
 
 func _on_continuar_pressed() -> void:
-	get_tree().change_scene_to_file("res://intro.tscn")
+	get_tree().change_scene_to_file("res://Inicio/Scenes/intro.tscn")

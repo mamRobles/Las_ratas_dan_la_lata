@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-raiz="*res://raiz.gd"
-Mini1Jugador="*res://MINI1_jugador.tscn"
+INICIO="*res://Inicio/Scripts/Inicio.gd"
+MINI1="*res://MINI1/Scripts/mini_1.gd"
 
 [input]
 

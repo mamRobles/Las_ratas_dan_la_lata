@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfbhipgjtmlky"
-path="res://.godot/imported/jarron-MINI1.png-89d691e9c79414b36de3079b0ac35f07.ctex"
+path="res://.godot/imported/jarron-MINI1.png-ec465e774f272db339758b5ecfad566f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/jarron-MINI1.png"
-dest_files=["res://.godot/imported/jarron-MINI1.png-89d691e9c79414b36de3079b0ac35f07.ctex"]
+source_file="res://MINI1/Sprites/jarron-MINI1.png"
+dest_files=["res://.godot/imported/jarron-MINI1.png-ec465e774f272db339758b5ecfad566f.ctex"]
 
 [params]
 

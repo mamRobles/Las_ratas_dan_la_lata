@@ -3,7 +3,7 @@ extends Control
 @onready var label: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/Label
 
 func _ready():
-	label.text = "¡Van a jugar " + str(raiz.num_jugadores) + " ratas!"
+	label.text = "¡Van a jugar " + str(INICIO.num_jugadores) + " ratas!"
 	
 	#Contenedor vertical
 	var contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer")
@@ -17,15 +17,15 @@ func _ready():
 	style.corner_radius_bottom_right = 10
 		
 	#Para cada jugador
-	for i in range(raiz.num_jugadores):
+	for i in range(INICIO.num_jugadores):
 		#Se crea un nodo Label
-		var nombre = Label.new() 
+		var nombre = Label.new()
 		#Nombre del nodo
-		nombre.name = "NombreJugador" + str(i+1) 
+		nombre.name = "NombreJugador" + str(i+1)
 		#Texto de la Label
-		nombre.text = raiz.nombres_jugadores[i]
+		nombre.text = INICIO.nombres_jugadores[i]
 		#Se añade el nodo al contenedor
-		contenedor.add_child(nombre) 
+		contenedor.add_child(nombre)
 		
 		#Se añade el atributo style a la etiqueta
 		nombre.add_theme_stylebox_override("normal", style)
@@ -38,4 +38,4 @@ func _ready():
 
 
 func _on_jugar_pressed() -> void:
-	get_tree().change_scene_to_file("res://escenario-MINI1.tscn")
+	get_tree().change_scene_to_file("res://MINI1/Scenes/escenario-MINI1.tscn")

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qjtaai4m4bmc"
-path="res://.godot/imported/Jugar-MDI.png-de5c9af82d7835b5df27b743e0e5b30e.ctex"
+path="res://.godot/imported/Jugar-MDI.png-59a73629a850953b3b9a3559b84f8861.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Jugar-MDI.png"
-dest_files=["res://.godot/imported/Jugar-MDI.png-de5c9af82d7835b5df27b743e0e5b30e.ctex"]
+source_file="res://Inicio/Sprites/Jugar-MDI.png"
+dest_files=["res://.godot/imported/Jugar-MDI.png-59a73629a850953b3b9a3559b84f8861.ctex"]
 
 [params]
 
