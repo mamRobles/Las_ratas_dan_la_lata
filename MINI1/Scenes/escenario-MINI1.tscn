@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://i08rsalytc21"]
+
+[ext_resource type="Script" uid="uid://buo22v4ingqqm" path="res://escenario-MINI1.gd" id="1_5id6t"]
+[ext_resource type="PackedScene" uid="uid://clyotws51in8w" path="res://suelo-MINI1.tscn" id="2_5id6t"]
+[ext_resource type="Texture2D" uid="uid://dsmua3x7fwvtr" path="res://sprites/fondo-MINI1.jpg" id="2_i2fuo"]
+[ext_resource type="PackedScene" uid="uid://dm2tmk4shr1vx" path="res://MINI1_jugador.tscn" id="4_u83fo"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_5id6t")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.886154, 0.747405)
+texture = ExtResource("2_i2fuo")
+
+[node name="suelo" parent="." instance=ExtResource("2_5id6t")]
+
+[node name="MINI1_Jugador" parent="." instance=ExtResource("4_u83fo")]
+z_index = 10
+position = Vector2(224, 544)
+scale = Vector2(4, 4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

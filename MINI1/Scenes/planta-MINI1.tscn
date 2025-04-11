@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d37104wnyyal4"]
+
+[ext_resource type="Texture2D" uid="uid://byraxrhmpaym4" path="res://sprites/planta-MINI1.png" id="1_31mjs"]
+
+[node name="planta" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.64043e-06, -1.43647e-05)
+scale = Vector2(0.835341, 0.810127)
+texture = ExtResource("1_31mjs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.8, 0.8)
+polygon = PackedVector2Array(-130, 40, -130, 160, 130, 160, 130, 40)
