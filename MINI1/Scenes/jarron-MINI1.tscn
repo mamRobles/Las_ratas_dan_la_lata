@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgqs1ks40qxwr"]
 
-[ext_resource type="Texture2D" uid="uid://dfbhipgjtmlky" path="res://sprites/jarron-MINI1.png" id="1_j43ya"]
+[ext_resource type="Texture2D" uid="uid://dfbhipgjtmlky" path="res://MINI1/Sprites/jarron-MINI1.png" id="1_j43ya"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ygsbx"]
 radius = 80.0

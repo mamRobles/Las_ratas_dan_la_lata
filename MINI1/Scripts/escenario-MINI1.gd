@@ -1,4 +1,12 @@
 extends Node2D
+#Jugadores
+var jugadores : Array
+const escena_jugador = preload("res://MINI1/Scenes/MINI1_jugador.tscn")
+@onready var pos1 = $jugador1_pos.global_position
+@onready var pos2 = $jugador2_pos.global_position
+@onready var pos3 = $jugador3_pos.global_position
+@onready var pos4 = $jugador4_pos.global_position
+var input: Array=[] # para determinar los inputs de cada jugador
 
 #Escondites
 var esc1_scene = preload("res://MINI1/Scenes/libros-MINI1.tscn")
@@ -16,10 +24,38 @@ var screen_size : Vector2i		#Tamaño de la ventana
 var suelo_height : int			#Altura del suelo
 var offset : int				#Desplazamiento de la cámara
 var ultimo_escondite		
-var escondido : bool = false
 
+# Añadir un jugador al tree
+func add_player(indice):
+	#instanciar escena jugador
+	jugadores.append(escena_jugador.instantiate())
+		#usamos la variable jugador pa no escribir jugadores veintemilveces
+	var jugador = jugadores[-1]
+	# añadirla al array players
+	# añadirlo como nodo hijo a escenario
+	# modificar posición, estética (gorritos), inputs
+	if indice ==0:
+		jugador.position=pos1
+	elif indice == 1:
+		jugador.position=pos2
+	elif indice ==2:
+		jugador.position=pos3
+	elif indice ==3:
+		jugador.position=pos4
+	else:
+		print("indice incorrecto")
+	#TODO: añadir gorritos y colores y esas cosas
+	#TODO: colisiones y cagadas
+	jugador.izquierda="ui_left{n}".format({"n":indice+1})
+	jugador.derecha="ui_right{n}".format({"n":indice+1})
+	jugador.arriba="ui_up{n}".format({"n":indice+1})
+	jugador.abajo="ui_down{n}".format({"n":indice+1})
+	jugador.apply_scale(Vector2(4.0, 4.0))
+	add_child(jugador)
 
 func _ready():
+	for i in range(INICIO.num_jugadores):
+		add_player(i)
 	screen_size = get_window().size
 	suelo_height = $suelo.get_node("Sprite2D").texture.get_height()
 	#reset()
@@ -92,13 +128,13 @@ func remove_esc(esc):
 
 #Si un body entra en el escondite
 func entrar_escondite(body):
-	if body.name == "MINI1_Jugador":		#Si es un jugador
-		MINI1.escondido = true
+	if body.get_class() == "CharacterBody2D":		#Si es un jugador
+		body.escondido = true
 		print("La rata esta escondida (rata cobarde)")
 
 #Si un body sale del escondite
 func salir_escondite(body):
-	if body.name == "MINI1_Jugador":		#Si es un jugador
-		MINI1.escondido  = false
+	if body.get_class() == "CharacterBody2D":		#Si es un jugador
+		body.escondido  = false
 		print("La rata ya NO esta escondida (ojala te coman)")
 	

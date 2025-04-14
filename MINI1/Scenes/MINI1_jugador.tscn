@@ -175,6 +175,7 @@ animations = [{
 size = Vector2(16, 16)
 
 [node name="MINI1_Jugador" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_p5gs6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
