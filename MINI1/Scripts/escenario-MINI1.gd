@@ -1,5 +1,12 @@
 extends Node2D
-
+#Jugadores
+var jugadores : Array
+const escena_jugador = preload("res://MINI1/Scenes/MINI1_jugador.tscn")
+@onready var pos1 = $jugador1_pos.global_position
+@onready var pos2 = $jugador2_pos.global_position
+@onready var pos3 = $jugador3_pos.global_position
+@onready var pos4 = $jugador4_pos.global_position
+var posiciones : Array
 #Escondites
 var esc1_scene = preload("res://MINI1/Scenes/libros-MINI1.tscn")
 var esc2_scene = preload("res://MINI1/Scenes/planta-MINI1.tscn")
@@ -20,15 +27,49 @@ var screen_size : Vector2i		#Tamaño de la ventana
 var suelo_height : int			#Altura del suelo
 var offset : int				#Desplazamiento de la cámara
 var ultimo_escondite		
-var escondido : bool = false
 
 var terminar : bool = false
 var meta_generada : bool = false
 var gato_activo : bool = false
 var meta
 
+# Añadir un jugador al tree
+func add_player(indice):
+	#instanciar escena jugador
+	jugadores.append(escena_jugador.instantiate())
+		#usamos la variable jugador pa no escribir jugadores veintemilveces
+	var jugador = jugadores[-1]
+	
+	# modificar posición, estética (gorritos), inputs
+	jugador.position = posiciones.pop_back() # pposiciones aleatorias de jugadores
+	# # este código es para cuando no tienes lista aleatoria
+	#if indice ==0:
+	#	jugador.position=pos1
+	#elif indice == 1:
+	#	jugador.position=pos2
+	#elif indice ==2:
+	#	jugador.position=pos3
+	#elif indice ==3:
+	#	jugador.position=pos4
+	#else:
+	#	print("indice incorrecto")
+	#TODO: añadir gorritos y colores y esas cosas
+	jugador.izquierda="ui_left{n}".format({"n":indice+1})
+	jugador.derecha="ui_right{n}".format({"n":indice+1})
+	jugador.arriba="ui_up{n}".format({"n":indice+1})
+	jugador.abajo="ui_down{n}".format({"n":indice+1})
+	jugador.apply_scale(Vector2(4.0, 4.0))
+	add_child(jugador)
+
+
+
+
 
 func _ready():
+	posiciones  = [pos1,pos2,pos3,pos4]
+	posiciones.shuffle() # aleatorizar lista de posiciones
+	for i in range(INICIO.num_jugadores):
+		add_player(i)
 	screen_size = get_window().size
 	suelo_height = $suelo.get_node("Sprite2D").texture.get_height()
 	$GatoAviso.visible = false
@@ -107,14 +148,14 @@ func remove_esc(esc):
 
 #Si un body entra en el escondite
 func entrar_escondite(body):
-	if body.name == "MINI1_Jugador":		#Si es un jugador
-		MINI1.escondido = true
+	if body.get_class() == "CharacterBody2D":		#Si es un jugador
+		body.escondido = true
 		print("La rata esta escondida (rata cobarde)")
 
 #Si un body sale del escondite
 func salir_escondite(body):
-	if body.name == "MINI1_Jugador":		#Si es un jugador
-		MINI1.escondido  = false
+	if body.get_class() == "CharacterBody2D":		#Si es un jugador
+		body.escondido  = false
 		print("La rata ya NO esta escondida (ojala te coman)")
 
 func generate_fin():
