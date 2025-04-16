@@ -1,10 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://i08rsalytc21"]
+[gd_scene load_steps=14 format=3 uid="uid://i08rsalytc21"]
 
 [ext_resource type="Script" uid="uid://buo22v4ingqqm" path="res://MINI1/Scripts/escenario-MINI1.gd" id="1_5id6t"]
 [ext_resource type="PackedScene" uid="uid://clyotws51in8w" path="res://MINI1/Scenes/suelo-MINI1.tscn" id="2_5id6t"]
 [ext_resource type="Texture2D" uid="uid://dsmua3x7fwvtr" path="res://MINI1/Sprites/fondo-MINI1.jpg" id="2_i2fuo"]
 [ext_resource type="PackedScene" uid="uid://dm2tmk4shr1vx" path="res://MINI1/Scenes/MINI1_jugador.tscn" id="4_u83fo"]
-[ext_resource type="Texture2D" uid="uid://bu8r8m6q5t0vv" path="res://MINI1/Sprites/gato-MINI1.png" id="5_2b5kb"]
+[ext_resource type="Texture2D" uid="uid://ugqkt8toe6ir" path="res://MINI1/Sprites/gato-MINI1.png" id="5_2b5kb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvt1d"]
+atlas = ExtResource("5_2b5kb")
+region = Rect2(209, 400, 182, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ymgp"]
+atlas = ExtResource("5_2b5kb")
+region = Rect2(391, 0, 182, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fb6i"]
+atlas = ExtResource("5_2b5kb")
+region = Rect2(391, 400, 182, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7iw1"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_nvt1d")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_3ymgp")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_6fb6i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2b5kb"]
+atlas = ExtResource("5_2b5kb")
+region = Rect2(391, 200, 182, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7iw1"]
+atlas = ExtResource("5_2b5kb")
+region = Rect2(27, 400, 182, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqibx"]
+atlas = ExtResource("5_2b5kb")
+region = Rect2(209, 0, 182, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7t66"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2b5kb")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_p7iw1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_tqibx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5id6t")
@@ -34,16 +92,26 @@ autostart = true
 wait_time = 10.0
 autostart = true
 
-[node name="FinGato" type="Timer" parent="."]
-wait_time = 5.0
+[node name="InicioGatoCazando" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
-[node name="Gato" type="Sprite2D" parent="."]
-position = Vector2(576, 320)
-scale = Vector2(0.956522, 0.994083)
-texture = ExtResource("5_2b5kb")
+[node name="FinGato" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
-[connection signal="timeout" from="Fin" to="." method="_on_timer_timeout"]
+[node name="GatoAviso" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.956522, 1.04)
+sprite_frames = SubResource("SpriteFrames_p7iw1")
+
+[node name="GatoCazando" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.967033, 1.04)
+sprite_frames = SubResource("SpriteFrames_b7t66")
+
 [connection signal="timeout" from="Fin" to="." method="_on_fin_timeout"]
+[connection signal="timeout" from="Fin" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="InicioGato" to="." method="_on_inicio_gato_timeout"]
+[connection signal="timeout" from="InicioGatoCazando" to="." method="_on_inicio_gato_cazando_timeout"]
 [connection signal="timeout" from="FinGato" to="." method="_on_fin_gato_timeout"]
