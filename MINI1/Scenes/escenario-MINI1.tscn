@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://i08rsalytc21"]
+[gd_scene load_steps=6 format=3 uid="uid://i08rsalytc21"]
 
 [ext_resource type="Script" uid="uid://buo22v4ingqqm" path="res://MINI1/Scripts/escenario-MINI1.gd" id="1_5id6t"]
 [ext_resource type="PackedScene" uid="uid://clyotws51in8w" path="res://MINI1/Scenes/suelo-MINI1.tscn" id="2_5id6t"]
 [ext_resource type="Texture2D" uid="uid://dsmua3x7fwvtr" path="res://MINI1/Sprites/fondo-MINI1.jpg" id="2_i2fuo"]
 [ext_resource type="PackedScene" uid="uid://dm2tmk4shr1vx" path="res://MINI1/Scenes/MINI1_jugador.tscn" id="4_u83fo"]
+[ext_resource type="Texture2D" uid="uid://bu8r8m6q5t0vv" path="res://MINI1/Sprites/gato-MINI1.png" id="5_2b5kb"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5id6t")
@@ -25,7 +26,24 @@ position = Vector2(576, 324)
 
 [node name="Fin" type="Timer" parent="."]
 process_callback = 0
+wait_time = 25.0
+one_shot = true
+autostart = true
+
+[node name="InicioGato" type="Timer" parent="."]
 wait_time = 10.0
+autostart = true
+
+[node name="FinGato" type="Timer" parent="."]
+wait_time = 5.0
 one_shot = true
 
+[node name="Gato" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.956522, 0.994083)
+texture = ExtResource("5_2b5kb")
+
 [connection signal="timeout" from="Fin" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Fin" to="." method="_on_fin_timeout"]
+[connection signal="timeout" from="InicioGato" to="." method="_on_inicio_gato_timeout"]
+[connection signal="timeout" from="FinGato" to="." method="_on_fin_gato_timeout"]

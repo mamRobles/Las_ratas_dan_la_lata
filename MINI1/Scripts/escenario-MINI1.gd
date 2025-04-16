@@ -24,14 +24,14 @@ var escondido : bool = false
 
 var terminar : bool = false
 var meta_generada : bool = false
-#var tiempo : int = 0
+var gato_activo : bool = false
 var meta
 
 
 func _ready():
 	screen_size = get_window().size
 	suelo_height = $suelo.get_node("Sprite2D").texture.get_height()
-	$Fin.start()
+	$Gato.visible = false
 	
 
 func _process(delta):
@@ -46,6 +46,7 @@ func _process(delta):
 		#Mover la cámara, el fondo, el jugador e incrementar el offset
 		$Camera2D.position.x += SPEED
 		$Fondo.position.x += SPEED
+		$Gato.position.x += SPEED
 		offset += SPEED
 		
 		#Si la camara avanza mucho, mueve el suelo
@@ -56,6 +57,9 @@ func _process(delta):
 		for esc in escondites:
 			if esc.position.x < ($Camera2D.position.x - screen_size.x):
 				remove_esc(esc)
+		
+		if gato_activo:
+			print("GATO VIGILANDO")
 	
 #Generar escondite
 func generate_esc():
@@ -119,6 +123,19 @@ func generate_fin():
 	meta.position = Vector2i(meta_x, meta_y)
 	add_child(meta)
 
-func _on_timer_timeout() -> void:
+
+func _on_fin_timeout() -> void:
 	generate_fin()
 	meta_generada = true
+	
+func _on_inicio_gato_timeout() -> void:
+	$FinGato.start()
+	if !meta_generada:
+		$Gato.visible = true
+		gato_activo = true
+
+func _on_fin_gato_timeout() -> void:
+	$Gato.visible = false
+	gato_activo = false
+	
+	
