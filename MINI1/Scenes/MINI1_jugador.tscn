@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dm2tmk4shr1vx"]
+[gd_scene load_steps=23 format=3 uid="uid://dm2tmk4shr1vx"]
 
 [ext_resource type="Texture2D" uid="uid://pi82mnverln7" path="res://MINI1/Sprites/rat.png" id="1_nr0b5"]
 [ext_resource type="Script" uid="uid://cgkqfc4db1sn3" path="res://MINI1/Scripts/mini1_jugador.gd" id="1_p5gs6"]
@@ -174,9 +174,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mugjy"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwvlv"]
+size = Vector2(16, 8)
+
 [node name="MINI1_Jugador" type="CharacterBody2D"]
 z_index = 10
 script = ExtResource("1_p5gs6")
+tiempodebuff = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
@@ -185,3 +189,9 @@ animation = &"parado_derecha"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mugjy")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_gwvlv")

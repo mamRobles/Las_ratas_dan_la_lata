@@ -6,8 +6,7 @@ const escena_jugador = preload("res://MINI1/Scenes/MINI1_jugador.tscn")
 @onready var pos2 = $jugador2_pos.global_position
 @onready var pos3 = $jugador3_pos.global_position
 @onready var pos4 = $jugador4_pos.global_position
-var input: Array=[] # para determinar los inputs de cada jugador
-
+var posiciones : Array
 #Escondites
 var esc1_scene = preload("res://MINI1/Scenes/libros-MINI1.tscn")
 var esc2_scene = preload("res://MINI1/Scenes/planta-MINI1.tscn")
@@ -31,21 +30,21 @@ func add_player(indice):
 	jugadores.append(escena_jugador.instantiate())
 		#usamos la variable jugador pa no escribir jugadores veintemilveces
 	var jugador = jugadores[-1]
-	# añadirla al array players
-	# añadirlo como nodo hijo a escenario
+	
 	# modificar posición, estética (gorritos), inputs
-	if indice ==0:
-		jugador.position=pos1
-	elif indice == 1:
-		jugador.position=pos2
-	elif indice ==2:
-		jugador.position=pos3
-	elif indice ==3:
-		jugador.position=pos4
-	else:
-		print("indice incorrecto")
+	jugador.position = posiciones.pop_back()
+	# # este código es para cuando no tienes lista aleatoria
+	#if indice ==0:
+	#	jugador.position=pos1
+	#elif indice == 1:
+	#	jugador.position=pos2
+	#elif indice ==2:
+	#	jugador.position=pos3
+	#elif indice ==3:
+	#	jugador.position=pos4
+	#else:
+	#	print("indice incorrecto")
 	#TODO: añadir gorritos y colores y esas cosas
-	#TODO: colisiones y cagadas
 	jugador.izquierda="ui_left{n}".format({"n":indice+1})
 	jugador.derecha="ui_right{n}".format({"n":indice+1})
 	jugador.arriba="ui_up{n}".format({"n":indice+1})
@@ -54,6 +53,8 @@ func add_player(indice):
 	add_child(jugador)
 
 func _ready():
+	posiciones  = [pos1,pos2,pos3,pos4]
+	posiciones.shuffle() # aleatorizar lista de posiciones
 	for i in range(INICIO.num_jugadores):
 		add_player(i)
 	screen_size = get_window().size
