@@ -32,7 +32,7 @@ func add_player(indice):
 	var jugador = jugadores[-1]
 	
 	# modificar posición, estética (gorritos), inputs
-	jugador.position = posiciones.pop_back()
+	jugador.position = posiciones.pop_back() # pposiciones aleatorias de jugadores
 	# # este código es para cuando no tienes lista aleatoria
 	#if indice ==0:
 	#	jugador.position=pos1
