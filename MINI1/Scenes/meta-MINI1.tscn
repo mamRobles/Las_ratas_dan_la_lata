@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct640p4dqi6wq"]
+
+[ext_resource type="Texture2D" uid="uid://bp0wnaglelavo" path="res://MINI1/Sprites/meta-MINI1.png" id="1_jmyck"]
+
+[node name="Node2D" type="Sprite2D"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_jmyck")

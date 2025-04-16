@@ -14,15 +14,24 @@ var esc3_scene = preload("res://MINI1/Scenes/jarron-MINI1.tscn")
 var tipos_escondite := [esc1_scene, esc2_scene, esc3_scene]
 var escondites : Array
 
+#Meta
+var meta_scene = preload("res://MINI1/Scenes/meta-MINI1.tscn")
+
 #Variables
 const CAM_START_POS := Vector2i(576, 324) #Posición inicial de la cámara
 const BG_START_POS := Vector2i(576, 324)  #Posición inicial del fondo
 const SPEED : float = 3.0				  #Velocidad del juego
+#const FIN : float = 2.0
 
 var screen_size : Vector2i		#Tamaño de la ventana
 var suelo_height : int			#Altura del suelo
 var offset : int				#Desplazamiento de la cámara
 var ultimo_escondite		
+
+var terminar : bool = false
+var meta_generada : bool = false
+var gato_activo : bool = false
+var meta
 
 # Añadir un jugador al tree
 func add_player(indice):
@@ -52,6 +61,10 @@ func add_player(indice):
 	jugador.apply_scale(Vector2(4.0, 4.0))
 	add_child(jugador)
 
+
+
+
+
 func _ready():
 	posiciones  = [pos1,pos2,pos3,pos4]
 	posiciones.shuffle() # aleatorizar lista de posiciones
@@ -59,34 +72,40 @@ func _ready():
 		add_player(i)
 	screen_size = get_window().size
 	suelo_height = $suelo.get_node("Sprite2D").texture.get_height()
-	#reset()
+	$GatoAviso.visible = false
+	$GatoAviso.play("default")
+	$GatoCazando.visible = false
+	$GatoCazando.play("default")
 	
 
 func _process(delta):
-	#Generar escondite
-	generate_esc()
-	
-	#Mover la cámara, el fondo, el jugador e incrementar el offset
-	$Camera2D.position.x += SPEED
-	$Fondo.position.x += SPEED
-	#$rata.position.x += SPEED
-	offset += SPEED
-	
-	#Si la camara avanza mucho, mueve el suelo
-	if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
-		$suelo.position.x += screen_size.x
-	
-	#Si el escondite desaparece de plano, lo elimina
-	for esc in escondites:
-		if esc.position.x < ($Camera2D.position.x - screen_size.x):
-			remove_esc(esc)
-
-#Resetear el offset y las posiciones de la cámara, el suelo y el fondo
-#func reset():
-	#offset = 0
-	#$Camera2D.position = CAM_START_POS
-	#$suelo.position = Vector2i(0,0)
-	#$Fondo.position = BG_START_POS
+	if !terminar:
+		if meta_generada:
+			if meta.position.x == screen_size.x / 2 + offset:
+					terminar = true
+		else:
+			#Generar escondite
+			generate_esc()
+		
+		#Mover la cámara, el fondo, el jugador e incrementar el offset
+		if !gato_activo:
+			$Camera2D.position.x += SPEED
+			$Fondo.position.x += SPEED
+			$GatoAviso.position.x += SPEED
+			$GatoCazando.position.x += SPEED
+			offset += SPEED
+		
+		#Si la camara avanza mucho, mueve el suelo
+		if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
+			$suelo.position.x += screen_size.x
+		
+		#Si el escondite desaparece de plano, lo elimina
+		for esc in escondites:
+			if esc.position.x < ($Camera2D.position.x - screen_size.x):
+				remove_esc(esc)
+		
+		if gato_activo:
+			print("GATO VIGILANDO")
 	
 #Generar escondite
 func generate_esc():
@@ -138,4 +157,37 @@ func salir_escondite(body):
 	if body.get_class() == "CharacterBody2D":		#Si es un jugador
 		body.escondido  = false
 		print("La rata ya NO esta escondida (ojala te coman)")
+
+func generate_fin():
+	meta = meta_scene.instantiate()
+
+	var meta_height = meta.texture.get_height()
+	var meta_scale = meta.scale
+	var meta_x : int = 2 * screen_size.x + offset
+	var meta_y : int = (screen_size.y - meta_height * meta_scale.y / 2) - (suelo_height / 2) + 30
+	
+	meta.position = Vector2i(meta_x, meta_y)
+	add_child(meta)
+
+
+func _on_fin_timeout() -> void:
+	generate_fin()
+	meta_generada = true
+	
+func _on_inicio_gato_timeout() -> void:
+	$InicioGatoCazando.start()
+	if !meta_generada:
+		$GatoAviso.visible = true
+		
+
+func _on_inicio_gato_cazando_timeout() -> void:
+	$FinGato.start()
+	if !meta_generada:
+		$GatoAviso.visible = false
+		$GatoCazando.visible = true
+		gato_activo = true
+
+func _on_fin_gato_timeout() -> void:
+	$GatoCazando.visible = false
+	gato_activo = false
 	
