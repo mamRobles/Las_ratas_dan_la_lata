@@ -125,8 +125,8 @@ sprite_frames = SubResource("SpriteFrames_b7t66")
 position = Vector2(1095.5, 803)
 shape = SubResource("RectangleShape2D_7n72r")
 
-[connection signal="timeout" from="Fin" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Fin" to="." method="_on_fin_timeout"]
+[connection signal="timeout" from="Fin" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="InicioGato" to="." method="_on_inicio_gato_timeout"]
 [connection signal="timeout" from="InicioGatoCazando" to="." method="_on_inicio_gato_cazando_timeout"]
 [connection signal="timeout" from="FinGato" to="." method="_on_fin_gato_timeout"]
