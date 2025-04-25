@@ -1,6 +1,7 @@
 extends Node2D
 #Jugadores
 var jugadores : Array
+var muertos: Array = [false,false,false,false]
 const escena_jugador = preload("res://MINI1/Scenes/MINI1_jugador.tscn")
 @onready var pos1 = $jugador1_pos.global_position
 @onready var pos2 = $jugador2_pos.global_position
@@ -39,7 +40,7 @@ func add_player(indice):
 	jugadores.append(escena_jugador.instantiate())
 		#usamos la variable jugador pa no escribir jugadores veintemilveces
 	var jugador = jugadores[-1]
-	
+	jugador.id =indice
 	# modificar posición, estética (gorritos), inputs
 	jugador.position = posiciones.pop_back() # pposiciones aleatorias de jugadores
 	# # este código es para cuando no tienes lista aleatoria
@@ -62,7 +63,11 @@ func add_player(indice):
 	add_child(jugador)
 
 
-
+func kill_player(indice):
+	jugadores[indice].muerto=true
+	muertos[indice]=true
+	#jugadores[indice].hide()
+	
 
 
 func _ready():
@@ -98,14 +103,17 @@ func _process(delta):
 		#Si la camara avanza mucho, mueve el suelo
 		if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
 			$suelo.position.x += screen_size.x
-		
+			$"CaídaAlVacío".position.x+=screen_size.x
 		#Si el escondite desaparece de plano, lo elimina
 		for esc in escondites:
 			if esc.position.x < ($Camera2D.position.x - screen_size.x):
 				remove_esc(esc)
 		
 		if gato_activo:
-			print("GATO VIGILANDO")
+			for i in range(INICIO.num_jugadores):
+				if jugadores[i].escondido ==false:
+					kill_player(i)
+			#print("GATO VIGILANDO")
 	
 #Generar escondite
 func generate_esc():
@@ -150,13 +158,13 @@ func remove_esc(esc):
 func entrar_escondite(body):
 	if body.get_class() == "CharacterBody2D":		#Si es un jugador
 		body.escondido = true
-		print("La rata esta escondida (rata cobarde)")
+		#print("La rata esta escondida (rata cobarde)")
 
 #Si un body sale del escondite
 func salir_escondite(body):
 	if body.get_class() == "CharacterBody2D":		#Si es un jugador
 		body.escondido  = false
-		print("La rata ya NO esta escondida (ojala te coman)")
+		#print("La rata ya NO esta escondida (ojala te coman)")
 
 func generate_fin():
 	meta = meta_scene.instantiate()
@@ -190,4 +198,11 @@ func _on_inicio_gato_cazando_timeout() -> void:
 func _on_fin_gato_timeout() -> void:
 	$GatoCazando.visible = false
 	gato_activo = false
+	
+
+
+func _on_caída_al_vacío_body_entered(body: Node2D) -> void:
+	if body.get_class() == "CharacterBody2D":		#Si es un jugador
+		if body.muerto ==false: kill_player(body.id) #matalo si no está muerto
+		body.hide() # no se ve en la escena 
 	
