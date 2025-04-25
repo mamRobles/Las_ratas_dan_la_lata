@@ -17,6 +17,8 @@ var arriba ="ui_up1"
 var abajo = "ui_down1"
 
 var escondido:bool = false
+var muerto: bool =false
+var id:int =1
 
 func _ready() -> void:
 	_animated_sprite.play("parado_derecha")
@@ -24,50 +26,56 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if muerto==false:
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed(arriba) and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		# Handle jump.
+		if Input.is_action_just_pressed(arriba) and is_on_floor():
+			velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis(izquierda, derecha)
-	if direction:
-		velocity.x = direction * SPEED *debuff
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var direction := Input.get_axis(izquierda, derecha)
+		if direction:
+			velocity.x = direction * SPEED *debuff
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+		move_and_slide()
 
 
 func _process(_delta):
-	
-	if Input.is_action_pressed(derecha):
-		accion=1
-		if escondido:
-			_animated_sprite.play("derecha_escondido")
+	if muerto:
+		if accion==0:
+			_animated_sprite.play("muerto_izquierda")
 		else:
-			_animated_sprite.play("derecha")
-	else: if Input.is_action_pressed(izquierda):
-		accion=0
-		if escondido:
-			_animated_sprite.play("izquierda_escondido")
-		else:
-			_animated_sprite.play("izquierda")
+			_animated_sprite.play("muerto_derecha")
 	else:
-		if (accion):
+		if Input.is_action_pressed(derecha):
+			accion=1
 			if escondido:
-				_animated_sprite.play("parado_derecha_escondido")
+				_animated_sprite.play("derecha_escondido")
 			else:
-				_animated_sprite.play("parado_derecha")
+				_animated_sprite.play("derecha")
+		else: if Input.is_action_pressed(izquierda):
+			accion=0
+			if escondido:
+				_animated_sprite.play("izquierda_escondido")
+			else:
+				_animated_sprite.play("izquierda")
 		else:
-			if escondido:
-				_animated_sprite.play("parado_izquierda_escondido")
+			if (accion):
+				if escondido:
+					_animated_sprite.play("parado_derecha_escondido")
+				else:
+					_animated_sprite.play("parado_derecha")
 			else:
-				_animated_sprite.play("parado_izquierda")
-				
+				if escondido:
+					_animated_sprite.play("parado_izquierda_escondido")
+				else:
+					_animated_sprite.play("parado_izquierda")
+					
 func add_debuff(body):
 	#si estamos debuff, da igual entrar aquí
 	if debuffeado: return
