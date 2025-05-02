@@ -108,6 +108,10 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="MostrarGanadores" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="GatoAviso" type="AnimatedSprite2D" parent="."]
 position = Vector2(576, 320)
 scale = Vector2(0.956522, 1.04)
@@ -129,4 +133,5 @@ shape = SubResource("RectangleShape2D_7n72r")
 [connection signal="timeout" from="InicioGato" to="." method="_on_inicio_gato_timeout"]
 [connection signal="timeout" from="InicioGatoCazando" to="." method="_on_inicio_gato_cazando_timeout"]
 [connection signal="timeout" from="FinGato" to="." method="_on_fin_gato_timeout"]
+[connection signal="timeout" from="MostrarGanadores" to="." method="_on_mostrar_ganadores_timeout"]
 [connection signal="body_entered" from="CaídaAlVacío" to="." method="_on_caída_al_vacío_body_entered"]
