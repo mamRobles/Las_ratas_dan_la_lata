@@ -15,4 +15,5 @@ func _on_opciones_boton_pressed() -> void:
 
 
 func _on_salirboton_pressed() -> void:
-	get_tree().quit(0)
+	#get_tree().quit(0)
+	INICIO.salir_juego(0)
