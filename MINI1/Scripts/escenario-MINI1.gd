@@ -1,7 +1,7 @@
 extends Node2D
 #Jugadores
 var jugadores : Array
-var muertos: Array = [false,false,false,false]
+#var muertos: Array = [false,false,false,false]
 const escena_jugador = preload("res://MINI1/Scenes/MINI1_jugador.tscn")
 @onready var pos1 = $jugador1_pos.global_position
 @onready var pos2 = $jugador2_pos.global_position
@@ -32,6 +32,7 @@ var ultimo_escondite
 var terminar : bool = false
 var meta_generada : bool = false
 var gato_activo : bool = false
+var todos_muertos: bool
 var meta
 
 # Añadir un jugador al tree
@@ -65,7 +66,7 @@ func add_player(indice):
 
 func kill_player(indice):
 	jugadores[indice].muerto=true
-	muertos[indice]=true
+	MINI1.muertos[indice]=true
 	#jugadores[indice].hide()
 	
 
@@ -84,10 +85,20 @@ func _ready():
 	
 
 func _process(delta):
+	
+	if not todos_muertos:
+		todos_muertos = true
+		for i in range(INICIO.num_jugadores):
+			if not MINI1.muertos[i]:
+				todos_muertos = false
+		if todos_muertos:
+			$MostrarGanadores.start()
+	
 	if !terminar:
 		if meta_generada:
 			if meta.position.x == screen_size.x / 2 + offset:
 					terminar = true
+					$MostrarGanadores.start()
 		else:
 			#Generar escondite
 			generate_esc()
@@ -200,6 +211,9 @@ func _on_fin_gato_timeout() -> void:
 	$GatoCazando.visible = false
 	gato_activo = false
 	
+	
+func _on_mostrar_ganadores_timeout() -> void:
+	get_tree().change_scene_to_file("res://MINI1/Scenes/ganadores-MINI1.tscn")
 
 
 func _on_caída_al_vacío_body_entered(body: Node2D) -> void:
