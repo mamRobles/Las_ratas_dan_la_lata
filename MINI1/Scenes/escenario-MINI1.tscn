@@ -114,7 +114,6 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
-
 [node name="MostrarGanadores" type="Timer" parent="Node2D"]
 wait_time = 3.0
 one_shot = true
@@ -135,7 +134,6 @@ sprite_frames = SubResource("SpriteFrames_b7t66")
 position = Vector2(1095.5, 803)
 shape = SubResource("RectangleShape2D_7n72r")
 
-
 [connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_fin_timeout"]
 [connection signal="timeout" from="Node2D/InicioGato" to="Node2D" method="_on_inicio_gato_timeout"]
@@ -143,4 +141,3 @@ shape = SubResource("RectangleShape2D_7n72r")
 [connection signal="timeout" from="Node2D/FinGato" to="Node2D" method="_on_fin_gato_timeout"]
 [connection signal="timeout" from="Node2D/MostrarGanadores" to="Node2D" method="_on_mostrar_ganadores_timeout"]
 [connection signal="body_entered" from="Node2D/CaídaAlVacío" to="Node2D" method="_on_caída_al_vacío_body_entered"]
-
