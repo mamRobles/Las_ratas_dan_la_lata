@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://i08rsalytc21"]
+[gd_scene load_steps=15 format=3 uid="uid://i08rsalytc21"]
 
 [ext_resource type="Script" uid="uid://buo22v4ingqqm" path="res://MINI1/Scripts/escenario-MINI1.gd" id="1_5id6t"]
 [ext_resource type="PackedScene" uid="uid://clyotws51in8w" path="res://MINI1/Scenes/suelo-MINI1.tscn" id="2_5id6t"]
 [ext_resource type="Texture2D" uid="uid://dsmua3x7fwvtr" path="res://MINI1/Sprites/fondo-MINI1.jpg" id="2_i2fuo"]
 [ext_resource type="Texture2D" uid="uid://ugqkt8toe6ir" path="res://MINI1/Sprites/gato-MINI1.png" id="5_2b5kb"]
+[ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="5_nvt1d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvt1d"]
 atlas = ExtResource("5_2b5kb")
@@ -66,72 +67,80 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n72r"]
 size = Vector2(3035, 216)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node" type="Node"]
+
+[node name="Pausa" parent="." instance=ExtResource("5_nvt1d")]
+z_index = 20
+
+[node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_5id6t")
 
-[node name="Fondo" type="Sprite2D" parent="."]
+[node name="Fondo" type="Sprite2D" parent="Node2D"]
 position = Vector2(576, 324)
 scale = Vector2(0.886154, 0.747405)
 texture = ExtResource("2_i2fuo")
 
-[node name="suelo" parent="." instance=ExtResource("2_5id6t")]
+[node name="suelo" parent="Node2D" instance=ExtResource("2_5id6t")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Node2D"]
 position = Vector2(576, 324)
 
-[node name="jugador1_pos" type="Marker2D" parent="."]
+[node name="jugador1_pos" type="Marker2D" parent="Node2D"]
 position = Vector2(224, 543)
 
-[node name="jugador2_pos" type="Marker2D" parent="."]
+[node name="jugador2_pos" type="Marker2D" parent="Node2D"]
 position = Vector2(376, 539)
 
-[node name="jugador3_pos" type="Marker2D" parent="."]
+[node name="jugador3_pos" type="Marker2D" parent="Node2D"]
 position = Vector2(500, 543)
 
-[node name="jugador4_pos" type="Marker2D" parent="."]
+[node name="jugador4_pos" type="Marker2D" parent="Node2D"]
 position = Vector2(625, 533)
 
-[node name="Fin" type="Timer" parent="."]
+[node name="Fin" type="Timer" parent="Node2D"]
 wait_time = 25.0
 one_shot = true
 autostart = true
 
-[node name="InicioGato" type="Timer" parent="."]
+[node name="InicioGato" type="Timer" parent="Node2D"]
 wait_time = 10.0
 autostart = true
 
-[node name="InicioGatoCazando" type="Timer" parent="."]
+[node name="InicioGatoCazando" type="Timer" parent="Node2D"]
 wait_time = 2.0
 one_shot = true
 
-[node name="FinGato" type="Timer" parent="."]
+[node name="FinGato" type="Timer" parent="Node2D"]
 wait_time = 3.0
 one_shot = true
 
-[node name="MostrarGanadores" type="Timer" parent="."]
+
+[node name="MostrarGanadores" type="Timer" parent="Node2D"]
 wait_time = 3.0
 one_shot = true
 
-[node name="GatoAviso" type="AnimatedSprite2D" parent="."]
+[node name="GatoAviso" type="AnimatedSprite2D" parent="Node2D"]
 position = Vector2(576, 320)
 scale = Vector2(0.956522, 1.04)
 sprite_frames = SubResource("SpriteFrames_p7iw1")
 
-[node name="GatoCazando" type="AnimatedSprite2D" parent="."]
+[node name="GatoCazando" type="AnimatedSprite2D" parent="Node2D"]
 position = Vector2(576, 320)
 scale = Vector2(0.967033, 1.04)
 sprite_frames = SubResource("SpriteFrames_b7t66")
 
-[node name="CaídaAlVacío" type="Area2D" parent="."]
+[node name="CaídaAlVacío" type="Area2D" parent="Node2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CaídaAlVacío"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/CaídaAlVacío"]
 position = Vector2(1095.5, 803)
 shape = SubResource("RectangleShape2D_7n72r")
 
-[connection signal="timeout" from="Fin" to="." method="_on_fin_timeout"]
-[connection signal="timeout" from="Fin" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="InicioGato" to="." method="_on_inicio_gato_timeout"]
-[connection signal="timeout" from="InicioGatoCazando" to="." method="_on_inicio_gato_cazando_timeout"]
-[connection signal="timeout" from="FinGato" to="." method="_on_fin_gato_timeout"]
-[connection signal="timeout" from="MostrarGanadores" to="." method="_on_mostrar_ganadores_timeout"]
-[connection signal="body_entered" from="CaídaAlVacío" to="." method="_on_caída_al_vacío_body_entered"]
+
+[connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_fin_timeout"]
+[connection signal="timeout" from="Node2D/InicioGato" to="Node2D" method="_on_inicio_gato_timeout"]
+[connection signal="timeout" from="Node2D/InicioGatoCazando" to="Node2D" method="_on_inicio_gato_cazando_timeout"]
+[connection signal="timeout" from="Node2D/FinGato" to="Node2D" method="_on_fin_gato_timeout"]
+[connection signal="timeout" from="Node2D/MostrarGanadores" to="Node2D" method="_on_mostrar_ganadores_timeout"]
+[connection signal="body_entered" from="Node2D/CaídaAlVacío" to="Node2D" method="_on_caída_al_vacío_body_entered"]
+
