@@ -98,6 +98,7 @@ func _process(delta):
 			$Fondo.position.x += SPEED
 			$GatoAviso.position.x += SPEED
 			$GatoCazando.position.x += SPEED
+			$"../Pausa".position.x+=SPEED
 			offset += SPEED
 		
 		#Si la camara avanza mucho, mueve el suelo

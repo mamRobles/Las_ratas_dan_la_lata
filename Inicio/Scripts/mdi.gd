@@ -16,4 +16,3 @@ func _on_opciones_boton_pressed() -> void:
 
 func _on_salirboton_pressed() -> void:
 	get_tree().quit(0)
-	pass # Replace with function body.
