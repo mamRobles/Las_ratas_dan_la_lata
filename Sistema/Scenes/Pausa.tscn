@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dng7iryyfov06"]
 
-[ext_resource type="Script" uid="uid://fcyuvrj8bmu4" path="res://Sistema/Scenes/pausa.gd" id="1_fbpjw"]
+[ext_resource type="Script" uid="uid://fcyuvrj8bmu4" path="res://Sistema/Scripts/pausa.gd" id="1_fbpjw"]
 [ext_resource type="Texture2D" uid="uid://tltjphmrw7yf" path="res://Sistema/Sprites/pausa.png" id="2_ncwrm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1af34"]
@@ -69,6 +69,7 @@ script = ExtResource("1_fbpjw")
 [node name="Boton_pausa" type="TextureButton" parent="."]
 process_mode = 1
 custom_minimum_size = Vector2(20, 20)
+layout_mode = 0
 offset_right = 512.0
 offset_bottom = 512.0
 scale = Vector2(0.15, 0.15)
