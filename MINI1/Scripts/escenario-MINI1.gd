@@ -1,13 +1,15 @@
 extends Node2D
 #Jugadores
 var jugadores : Array
-#var muertos: Array = [false,false,false,false]
 const escena_jugador = preload("res://MINI1/Scenes/MINI1_jugador.tscn")
 @onready var pos1 = $jugador1_pos.global_position
 @onready var pos2 = $jugador2_pos.global_position
 @onready var pos3 = $jugador3_pos.global_position
 @onready var pos4 = $jugador4_pos.global_position
 var posiciones : Array
+
+var indices_aleatorios : Array
+
 #Escondites
 var esc1_scene = preload("res://MINI1/Scenes/libros-MINI1.tscn")
 var esc2_scene = preload("res://MINI1/Scenes/planta-MINI1.tscn")
@@ -43,7 +45,8 @@ func add_player(indice):
 	var jugador = jugadores[-1]
 	jugador.id =indice
 	# modificar posición, estética (gorritos), inputs
-	jugador.position = posiciones.pop_back() # pposiciones aleatorias de jugadores
+	###jugador.position = posiciones.pop_back() # pposiciones aleatorias de jugadores
+	jugador.position = posiciones[indices_aleatorios[indice]]
 	# # este código es para cuando no tienes lista aleatoria
 	#if indice ==0:
 	#	jugador.position=pos1
@@ -62,6 +65,19 @@ func add_player(indice):
 	jugador.abajo="ui_down{n}".format({"n":indice+1})
 	jugador.apply_scale(Vector2(4.0, 4.0))
 	add_child(jugador)
+	
+	if indices_aleatorios[indice] == 0:
+		$LabelPlayer1.text = INICIO.nombres_jugadores[indice]
+		$LabelPlayer1.visible = true
+	elif indices_aleatorios[indice] == 1:
+		$LabelPlayer2.text = INICIO.nombres_jugadores[indice]
+		$LabelPlayer2.visible = true
+	elif indices_aleatorios[indice] == 2:
+		$LabelPlayer3.text = INICIO.nombres_jugadores[indice]
+		$LabelPlayer3.visible = true
+	else:
+		$LabelPlayer4.text = INICIO.nombres_jugadores[indice]
+		$LabelPlayer4.visible = true
 
 
 func kill_player(indice):
@@ -73,7 +89,9 @@ func kill_player(indice):
 
 func _ready():
 	posiciones  = [pos1,pos2,pos3,pos4]
-	posiciones.shuffle() # aleatorizar lista de posiciones
+	###posiciones.shuffle() # aleatorizar lista de posiciones
+	indices_aleatorios = [0, 1, 2, 3]
+	indices_aleatorios.shuffle()
 	for i in range(INICIO.num_jugadores):
 		add_player(i)
 	screen_size = get_window().size
@@ -82,50 +100,52 @@ func _ready():
 	$GatoAviso.play("default")
 	$GatoCazando.visible = false
 	$GatoCazando.play("default")
+	$CuentaAtras.play("default")
+	
 	
 
 func _process(delta):
-	
-	if not todos_muertos:
-		todos_muertos = true
-		for i in range(INICIO.num_jugadores):
-			if not MINI1.muertos[i]:
-				todos_muertos = false
-		if todos_muertos:
-			$MostrarGanadores.start()
-	
-	if !terminar:
-		if meta_generada:
-			if meta.position.x == screen_size.x / 2 + offset:
-					terminar = true
-					$MostrarGanadores.start()
-		else:
-			#Generar escondite
-			generate_esc()
-		
-		#Mover la cámara, el fondo, el jugador e incrementar el offset
-		if !gato_activo:
-			$Camera2D.position.x += SPEED
-			$Fondo.position.x += SPEED
-			$GatoAviso.position.x += SPEED
-			$GatoCazando.position.x += SPEED
-			$"../Pausa".position.x+=SPEED
-			offset += SPEED
-		
-		#Si la camara avanza mucho, mueve el suelo
-		if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
-			$suelo.position.x += screen_size.x
-			$"CaídaAlVacío".position.x+=screen_size.x
-		#Si el escondite desaparece de plano, lo elimina
-		for esc in escondites:
-			if esc.position.x < ($Camera2D.position.x - screen_size.x):
-				remove_esc(esc)
-		
-		if gato_activo:
+	if MINI1.empezar:
+		if not todos_muertos:
+			todos_muertos = true
 			for i in range(INICIO.num_jugadores):
-				if jugadores[i].escondido ==false:
-					kill_player(i)
-			#print("GATO VIGILANDO")
+				if not MINI1.muertos[i]:
+					todos_muertos = false
+			if todos_muertos:
+				$MostrarGanadores.start()
+		
+		if !terminar:
+			if meta_generada:
+				if meta.position.x == screen_size.x / 2 + offset:
+						terminar = true
+						$MostrarGanadores.start()
+			else:
+				#Generar escondite
+				generate_esc()
+			
+			#Mover la cámara, el fondo, el jugador e incrementar el offset
+			if !gato_activo:
+				$Camera2D.position.x += SPEED
+				$Fondo.position.x += SPEED
+				$GatoAviso.position.x += SPEED
+				$GatoCazando.position.x += SPEED
+				$"../Pausa".position.x+=SPEED
+				offset += SPEED
+			
+			#Si la camara avanza mucho, mueve el suelo
+			if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
+				$suelo.position.x += screen_size.x
+				$"CaídaAlVacío".position.x+=screen_size.x
+			#Si el escondite desaparece de plano, lo elimina
+			for esc in escondites:
+				if esc.position.x < ($Camera2D.position.x - screen_size.x):
+					remove_esc(esc)
+			
+			if gato_activo:
+				for i in range(INICIO.num_jugadores):
+					if jugadores[i].escondido ==false:
+						kill_player(i)
+						
 	
 #Generar escondite
 func generate_esc():
@@ -215,6 +235,15 @@ func _on_fin_gato_timeout() -> void:
 func _on_mostrar_ganadores_timeout() -> void:
 	get_tree().change_scene_to_file("res://MINI1/Scenes/ganadores-MINI1.tscn")
 
+
+func _on_inicio_timeout() -> void:
+	MINI1.empezar = true
+	$CuentaAtras.visible = false
+	$LabelPlayer1.visible = false
+	$LabelPlayer2.visible = false
+	$LabelPlayer3.visible = false
+	$LabelPlayer4.visible = false
+	
 
 func _on_caída_al_vacío_body_entered(body: Node2D) -> void:
 	if body.get_class() == "CharacterBody2D":		#Si es un jugador
