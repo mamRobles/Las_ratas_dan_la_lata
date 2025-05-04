@@ -51,7 +51,7 @@ func _process(_delta):
 			_animated_sprite.play("muerto_izquierda")
 		else:
 			_animated_sprite.play("muerto_derecha")
-	else:
+	elif MINI1.empezar:
 		if Input.is_action_pressed(derecha):
 			accion=1
 			if escondido:
