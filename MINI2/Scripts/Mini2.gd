@@ -52,6 +52,9 @@ func _process(delta: float) -> void:
 #qué hacer cuando nosfegatu aparezca
 func _on_imagenmini_2_nosfegatu_aparece() -> void:
 	ha_salido=true
+	for i in range(INICIO.num_jugadores):
+		jugadores[i].nosfegatu_activo = true
+
 	await get_tree().create_timer(0.5).timeout
 	for i in range(INICIO.num_jugadores):
 		if jugadores[i].usec == 0.0:
