@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://qxlkfla77k5n"]
+
+[ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="1_rpd07"]
+[ext_resource type="Texture2D" uid="uid://dmsb8ith0xrlx" path="res://MINI2/Sprites/MINI2-fondo.png" id="2_nr5u8"]
+[ext_resource type="PackedScene" uid="uid://daf7dutp5qfb3" path="res://MINI2/Scenes/imagen-MINI2.tscn" id="3_heduh"]
+
+[node name="Mini2" type="Node"]
+
+[node name="Pausa" parent="." instance=ExtResource("1_rpd07")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="fondo" type="Sprite2D" parent="Node2D"]
+position = Vector2(-26, -2)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_nr5u8")
+centered = false
+
+[node name="Imagen-mini2" parent="Node2D" instance=ExtResource("3_heduh")]
+custom_minimum_size = Vector2(600, 350)
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 285.0
+offset_top = 100.0
+offset_right = 885.0
+offset_bottom = 450.0
+grow_horizontal = 1
+grow_vertical = 1
