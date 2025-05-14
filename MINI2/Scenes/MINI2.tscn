@@ -29,6 +29,23 @@ offset_bottom = 450.0
 wait_time = 50.0
 autostart = true
 
+[node name="jugador1_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(250, 600)
+
+[node name="jugador2_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(500, 600)
+
+[node name="jugador3_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(750, 600)
+
+[node name="jugador4_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(1000, 600)
+
+[node name="mostrar_ganadores" type="Timer" parent="Node2D"]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="hora_del_evento" from="Node2D" to="Node2D/Imagen-mini2" method="_on_node_2d_hora_del_evento"]
 [connection signal="nosfegatu_aparece" from="Node2D/Imagen-mini2" to="Node2D" method="_on_imagenmini_2_nosfegatu_aparece"]
 [connection signal="timeout" from="Node2D/hora_de_la_bestia" to="Node2D/Imagen-mini2" method="_on_hora_de_la_bestia_timeout"]
+[connection signal="timeout" from="Node2D/mostrar_ganadores" to="Node2D" method="_on_mostrar_ganadores_timeout"]
