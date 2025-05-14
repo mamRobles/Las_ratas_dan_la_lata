@@ -8,6 +8,7 @@
 [node name="Mini2" type="Node"]
 
 [node name="Pausa" parent="." instance=ExtResource("1_rpd07")]
+z_index = 10
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("2_heduh")

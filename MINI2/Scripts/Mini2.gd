@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	if($"Imagen-mini2".sin_evento):
 		$"Imagen-mini2".sin_evento=false
 		#random entre 3 y 6
-		var tiempo:int =(randi()%10)+6
+		var tiempo:int =(randi()%4)+4
 		await get_tree().create_timer(tiempo).timeout
 		hora_del_evento.emit()
 

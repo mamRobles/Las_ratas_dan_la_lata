@@ -1,24 +1,41 @@
-[gd_scene load_steps=7 format=3 uid="uid://daf7dutp5qfb3"]
+[gd_scene load_steps=15 format=3 uid="uid://daf7dutp5qfb3"]
 
 [ext_resource type="Script" uid="uid://b7m4dg450sdol" path="res://MINI2/Scripts/imagen_mini_2.gd" id="1_fqoey"]
 [ext_resource type="Texture2D" uid="uid://0yyl767ixhqo" path="res://MINI2/Sprites/MINI2-cine1.png" id="1_wdfsv"]
 [ext_resource type="Texture2D" uid="uid://dbtfo0ab1ibki" path="res://MINI2/Sprites/MINI2-cine2.png" id="2_fqoey"]
+[ext_resource type="Texture2D" uid="uid://dbx3kl1eyl45w" path="res://MINI2/Sprites/atico.png" id="2_ftrew"]
+[ext_resource type="Texture2D" uid="uid://coc2e3lh7i248" path="res://MINI2/Sprites/atico_abierto.png" id="3_13aeu"]
 [ext_resource type="Texture2D" uid="uid://1s1phtw4imyg" path="res://MINI2/Sprites/MINI2-cine3.png" id="3_u4vdm"]
 [ext_resource type="Texture2D" uid="uid://bk4asrcmihw4a" path="res://MINI2/Sprites/nosfegatu.png" id="5_u4vdm"]
+[ext_resource type="Texture2D" uid="uid://j62wgmbhdth4" path="res://MINI2/Sprites/puerta.png" id="5_up620"]
+[ext_resource type="Texture2D" uid="uid://b5o4jcsv0c5bc" path="res://MINI2/Sprites/puerta_abierta.png" id="6_vaxtw"]
+[ext_resource type="Texture2D" uid="uid://d1a8pxkyngckp" path="res://MINI2/Sprites/ventana.png" id="7_ypsy3"]
+[ext_resource type="Texture2D" uid="uid://diip8dbsp5hsw" path="res://MINI2/Sprites/ventana_abierta.png" id="8_a0q3l"]
+[ext_resource type="Texture2D" uid="uid://24mjtxg0om41" path="res://MINI2/Sprites/ataud.png" id="9_vf4w7"]
+[ext_resource type="Texture2D" uid="uid://um8l7blypblu" path="res://MINI2/Sprites/ataud_abierto.png" id="10_eprnv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l8dvp"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ftrew")
+}],
 "loop": true,
 "name": &"atico",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_13aeu")
+}],
 "loop": true,
 "name": &"atico_no",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_13aeu")
+}],
 "loop": true,
 "name": &"atico_si",
 "speed": 5.0
@@ -37,47 +54,74 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_up620")
+}],
 "loop": true,
 "name": &"puerta",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vaxtw")
+}],
 "loop": true,
 "name": &"puerta_no",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vaxtw")
+}],
 "loop": true,
 "name": &"puerta_si",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vf4w7")
+}],
 "loop": true,
 "name": &"tumba",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_eprnv")
+}],
 "loop": true,
 "name": &"tumba_no",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_eprnv")
+}],
 "loop": true,
 "name": &"tumba_si",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ypsy3")
+}],
 "loop": true,
 "name": &"ventana",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a0q3l")
+}],
 "loop": true,
 "name": &"ventana_no",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a0q3l")
+}],
 "loop": true,
 "name": &"ventana_si",
 "speed": 5.0
@@ -93,10 +137,8 @@ offset_bottom = 350.0
 script = ExtResource("1_fqoey")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-10, -96)
-scale = Vector2(0.67, 0.67)
 sprite_frames = SubResource("SpriteFrames_l8dvp")
-animation = &"ventana_si"
+animation = &"tumba"
 speed_scale = 0.2
 centered = false
 

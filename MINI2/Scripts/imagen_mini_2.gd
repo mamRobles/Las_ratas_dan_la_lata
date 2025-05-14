@@ -13,12 +13,16 @@ func _ready() -> void:
 
 
 func _evento(evento:String)->void:
+	while (get_tree().paused==true):
+		pass
 	$AnimatedSprite2D.play("{n}".format({"n":evento}))
+	await get_tree().create_timer(0.5).timeout
 	var gatu:bool = randi()%2
 	
 	if(gatu or hora_de_la_bestia):
 		#aparece nosfegatu
 		$AnimatedSprite2D.play("{n}_si".format({"n":evento}))
+		await get_tree().create_timer(0.5).timeout
 		$nosfegatu.show()
 		nosfegatu_aparece.emit()
 	else:
