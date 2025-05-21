@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://qxlkfla77k5n"]
+
+[ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="1_rpd07"]
+[ext_resource type="Script" uid="uid://b0aua4n2jjgm6" path="res://MINI2/Scripts/Mini2.gd" id="2_heduh"]
+[ext_resource type="Texture2D" uid="uid://dmsb8ith0xrlx" path="res://MINI2/Sprites/MINI2-fondo.png" id="2_nr5u8"]
+[ext_resource type="PackedScene" uid="uid://daf7dutp5qfb3" path="res://MINI2/Scenes/imagen-MINI2.tscn" id="3_heduh"]
+
+[node name="Mini2" type="Node"]
+
+[node name="Pausa" parent="." instance=ExtResource("1_rpd07")]
+z_index = 10
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("2_heduh")
+
+[node name="fondo" type="Sprite2D" parent="Node2D"]
+position = Vector2(-26, -2)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("2_nr5u8")
+centered = false
+
+[node name="Imagen-mini2" parent="Node2D" instance=ExtResource("3_heduh")]
+offset_left = 285.0
+offset_top = 100.0
+offset_right = 885.0
+offset_bottom = 450.0
+
+[node name="hora_de_la_bestia" type="Timer" parent="Node2D"]
+wait_time = 50.0
+autostart = true
+
+[node name="jugador1_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(250, 600)
+
+[node name="jugador2_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(500, 600)
+
+[node name="jugador3_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(750, 600)
+
+[node name="jugador4_pos" type="Marker2D" parent="Node2D"]
+position = Vector2(1000, 600)
+
+[node name="mostrar_ganadores" type="Timer" parent="Node2D"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="hora_del_evento" from="Node2D" to="Node2D/Imagen-mini2" method="_on_node_2d_hora_del_evento"]
+[connection signal="nosfegatu_aparece" from="Node2D/Imagen-mini2" to="Node2D" method="_on_imagenmini_2_nosfegatu_aparece"]
+[connection signal="timeout" from="Node2D/hora_de_la_bestia" to="Node2D/Imagen-mini2" method="_on_hora_de_la_bestia_timeout"]
+[connection signal="timeout" from="Node2D/mostrar_ganadores" to="Node2D" method="_on_mostrar_ganadores_timeout"]
