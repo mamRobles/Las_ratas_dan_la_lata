@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	velocity.x = 0.0 # movimiento inicial es 0 hasta que se determine lo contrario abajo
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	if muerto==false:
+	if muerto==false and MINI1.empezar:
 		# Handle jump.
 		if Input.is_action_just_pressed(arriba) and is_on_floor():
 			velocity.y = JUMP_VELOCITY
@@ -51,7 +51,7 @@ func _process(_delta):
 			_animated_sprite.play("muerto_izquierda")
 		else:
 			_animated_sprite.play("muerto_derecha")
-	else:
+	elif MINI1.empezar:
 		if Input.is_action_pressed(derecha):
 			accion=1
 			if escondido:

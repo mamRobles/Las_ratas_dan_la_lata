@@ -2,6 +2,7 @@ extends Node
 
 #var escondido:bool = false
 var muertos: Array = [false, false, false, false]
+var empezar : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
