@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8yy6kjobhw2i"]
+[gd_scene load_steps=17 format=3 uid="uid://c8yy6kjobhw2i"]
 
 [ext_resource type="Texture2D" uid="uid://bspft57ly7yy4" path="res://MINI1/Sprites/suelo-MINI1.png" id="1_3afbo"]
 [ext_resource type="Script" uid="uid://bqn7fbjpn4eo1" path="res://MINI3/Scripts/escenario-MINI3.gd" id="1_8cx1r"]
 [ext_resource type="Texture2D" uid="uid://bjt08kj2hlxn" path="res://MINI3/Sprites/diana-MINI3.png" id="2_8cx1r"]
+[ext_resource type="Texture2D" uid="uid://cxrygi01i258d" path="res://MINI1/Sprites/321go-MINI1.png" id="4_y2mtw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cx1r"]
 radius = 240.0
@@ -24,6 +25,42 @@ size = Vector2(1200, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrnno"]
 size = Vector2(24, 696)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7t66"]
+atlas = ExtResource("4_y2mtw")
+region = Rect2(0, 0, 50, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipw43"]
+atlas = ExtResource("4_y2mtw")
+region = Rect2(53, 0, 50, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrxnw"]
+atlas = ExtResource("4_y2mtw")
+region = Rect2(106, 0, 50, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw5w2"]
+atlas = ExtResource("4_y2mtw")
+region = Rect2(159, 0, 50, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4ceu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7t66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipw43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrxnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw5w2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Escenario-mini3" type="Node2D"]
 script = ExtResource("1_8cx1r")
@@ -120,9 +157,41 @@ shape = SubResource("RectangleShape2D_l4ceu")
 position = Vector2(1164, 324)
 shape = SubResource("RectangleShape2D_mrnno")
 
+[node name="Inicio" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Fin" type="Timer" parent="."]
+wait_time = 25.0
+one_shot = true
+autostart = true
+
+[node name="MostrarGanadores" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="CuentaAtrasInicio" type="AnimatedSprite2D" parent="."]
+z_index = 20
+position = Vector2(576, 320)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l4ceu")
+speed_scale = 0.25
+
+[node name="CuentaAtrasFin" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 20
+position = Vector2(576, 320)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_l4ceu")
+speed_scale = 0.25
+
 [connection signal="body_entered" from="Puntos1" to="." method="_on_puntos_body_entered"]
 [connection signal="body_exited" from="Puntos1" to="." method="_on_puntos_body_exited"]
 [connection signal="body_entered" from="Puntos2" to="." method="_on_puntos_body_entered"]
 [connection signal="body_exited" from="Puntos2" to="." method="_on_puntos_body_exited"]
 [connection signal="body_entered" from="Puntos3" to="." method="_on_puntos_body_entered"]
 [connection signal="body_exited" from="Puntos3" to="." method="_on_puntos_body_exited"]
+[connection signal="timeout" from="Inicio" to="." method="_on_inicio_timeout"]
+[connection signal="timeout" from="Fin" to="." method="_on_fin_timeout"]
+[connection signal="timeout" from="MostrarGanadores" to="." method="_on_mostrar_ganadores_timeout"]
