@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxwxc1atnp0bp"]
+[gd_scene load_steps=4 format=3 uid="uid://bxwxc1atnp0bp"]
 
 [ext_resource type="Script" uid="uid://c44i3h46e2nbb" path="res://Inicio/Scripts/mdo.gd" id="1_tvvv7"]
+[ext_resource type="Script" uid="uid://dsxj8j1nxlkh1" path="res://Inicio/Scripts/volumen.gd" id="2_caih2"]
+[ext_resource type="Script" uid="uid://dtr0h8yuqgu6v" path="res://Inicio/Scripts/fullscreen_2.gd" id="3_0s8l7"]
 
 [node name="MDO" type="Control"]
 layout_mode = 3
@@ -30,11 +32,55 @@ layout_mode = 2
 custom_minimum_size = Vector2(10, 20)
 layout_mode = 2
 text = "Este es el menú de opciones"
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 20)
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Volumen"
+scroll_active = false
+
+[node name="Volumen" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_caih2")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Pantalla completa"
+scroll_active = false
+
+[node name="fullscreen" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+script = ExtResource("3_0s8l7")
+
+[node name="Guardar" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "volver"
 
+[connection signal="drag_ended" from="MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="." method="_on_volumen_drag_ended"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="MarginContainer/VBoxContainer/HBoxContainer/Volumen" method="_on_mouse_exited"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="MarginContainer/VBoxContainer/HBoxContainer/Volumen" method="_on_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer2/fullscreen" to="MarginContainer/VBoxContainer/HBoxContainer2/fullscreen" method="_on_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Guardar" to="." method="_on_guardar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

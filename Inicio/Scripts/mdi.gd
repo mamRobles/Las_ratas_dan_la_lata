@@ -1,6 +1,14 @@
 extends MarginContainer
+@export var audio_bus_name := "Master"
 
+@onready var _bus := AudioServer.get_bus_index(audio_bus_name)
 
+func _ready() -> void:
+	var video_settings = INICIO.load_video_settings()
+	if video_settings["fullscreen"]:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	var audio_settings = INICIO.load_audio_settings()
+	AudioServer.set_bus_volume_db(_bus, linear_to_db(audio_settings["master_volume"]))
 func _on_jugarboton_pressed() -> void:
 	print("Botón jugar")
 	# cambiar a juego

@@ -76,5 +76,5 @@ stretch_mode = 5
 
 [connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Jugar-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
-[connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Salir-boton" to="." method="_on_salirboton_pressed"]
+[connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
