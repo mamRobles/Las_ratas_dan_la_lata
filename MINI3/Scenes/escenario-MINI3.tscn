@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8yy6kjobhw2i"]
+[gd_scene load_steps=18 format=3 uid="uid://c8yy6kjobhw2i"]
 
 [ext_resource type="Texture2D" uid="uid://bspft57ly7yy4" path="res://MINI1/Sprites/suelo-MINI1.png" id="1_3afbo"]
 [ext_resource type="Script" uid="uid://bqn7fbjpn4eo1" path="res://MINI3/Scripts/escenario-MINI3.gd" id="1_8cx1r"]
+[ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="1_l4ceu"]
 [ext_resource type="Texture2D" uid="uid://bjt08kj2hlxn" path="res://MINI3/Sprites/diana-MINI3.png" id="2_8cx1r"]
 [ext_resource type="Texture2D" uid="uid://cxrygi01i258d" path="res://MINI1/Sprites/321go-MINI1.png" id="4_y2mtw"]
 
@@ -62,123 +63,128 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Escenario-mini3" type="Node2D"]
+[node name="Node" type="Node"]
+
+[node name="Pausa" parent="." instance=ExtResource("1_l4ceu")]
+z_index = 15
+
+[node name="Escenario-mini3" type="Node2D" parent="."]
 script = ExtResource("1_8cx1r")
 
-[node name="Fondo" type="Sprite2D" parent="."]
+[node name="Fondo" type="Sprite2D" parent="Escenario-mini3"]
 position = Vector2(576, 324)
 scale = Vector2(1.40488, 2.53125)
 texture = ExtResource("1_3afbo")
 
-[node name="Diana" type="Sprite2D" parent="Fondo"]
+[node name="Diana" type="Sprite2D" parent="Escenario-mini3/Fondo"]
 position = Vector2(-8.54166, 3.51027)
 scale = Vector2(1.25172, 0.696871)
 texture = ExtResource("2_8cx1r")
 
-[node name="jugador1_pos" type="Marker2D" parent="."]
+[node name="jugador1_pos" type="Marker2D" parent="Escenario-mini3"]
 position = Vector2(192, 192)
 
-[node name="Label_jugador1" type="Label" parent="."]
+[node name="Label_jugador1" type="Label" parent="Escenario-mini3"]
 visible = false
 offset_left = 64.0
 offset_top = 64.0
 offset_right = 104.0
 offset_bottom = 87.0
 
-[node name="jugador2_pos" type="Marker2D" parent="."]
+[node name="jugador2_pos" type="Marker2D" parent="Escenario-mini3"]
 position = Vector2(960, 192)
 
-[node name="Label_jugador2" type="Label" parent="."]
+[node name="Label_jugador2" type="Label" parent="Escenario-mini3"]
 visible = false
 offset_left = 1048.0
 offset_top = 64.0
 offset_right = 1088.0
 offset_bottom = 87.0
 
-[node name="jugador3_pos" type="Marker2D" parent="."]
+[node name="jugador3_pos" type="Marker2D" parent="Escenario-mini3"]
 position = Vector2(192, 448)
 
-[node name="Label_jugador3" type="Label" parent="."]
+[node name="Label_jugador3" type="Label" parent="Escenario-mini3"]
 visible = false
 offset_left = 64.0
 offset_top = 552.0
 offset_right = 104.0
 offset_bottom = 575.0
 
-[node name="jugador4_pos" type="Marker2D" parent="."]
+[node name="jugador4_pos" type="Marker2D" parent="Escenario-mini3"]
 position = Vector2(960, 448)
 
-[node name="Label_jugador4" type="Label" parent="."]
+[node name="Label_jugador4" type="Label" parent="Escenario-mini3"]
 visible = false
 offset_left = 1048.0
 offset_top = 552.0
 offset_right = 1088.0
 offset_bottom = 575.0
 
-[node name="Puntos1" type="Area2D" parent="."]
+[node name="Puntos1" type="Area2D" parent="Escenario-mini3"]
 position = Vector2(560, 320)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Puntos1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario-mini3/Puntos1"]
 position = Vector2(-3, 3)
 shape = SubResource("CircleShape2D_8cx1r")
 debug_color = Color(0, 0.564706, 0.0352941, 0.329412)
 
-[node name="Puntos2" type="Area2D" parent="."]
+[node name="Puntos2" type="Area2D" parent="Escenario-mini3"]
 position = Vector2(560, 320)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Puntos2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario-mini3/Puntos2"]
 position = Vector2(-4, 4)
 shape = SubResource("CircleShape2D_y2mtw")
 debug_color = Color(0.999026, 0.739675, 1.42467e-05, 0.42)
 
-[node name="Puntos3" type="Area2D" parent="."]
+[node name="Puntos3" type="Area2D" parent="Escenario-mini3"]
 position = Vector2(560, 320)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Puntos3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario-mini3/Puntos3"]
 position = Vector2(-4, 3)
 shape = SubResource("CircleShape2D_l4ceu")
 debug_color = Color(0.994593, 0, 0.219567, 0.42)
 
-[node name="Borde" type="StaticBody2D" parent="."]
+[node name="Borde" type="StaticBody2D" parent="Escenario-mini3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Borde"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario-mini3/Borde"]
 position = Vector2(576, -12)
 shape = SubResource("RectangleShape2D_8cx1r")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Borde"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Escenario-mini3/Borde"]
 position = Vector2(-12, 324)
 shape = SubResource("RectangleShape2D_y2mtw")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Borde"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Escenario-mini3/Borde"]
 position = Vector2(576, 660)
 shape = SubResource("RectangleShape2D_l4ceu")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Borde"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Escenario-mini3/Borde"]
 position = Vector2(1164, 324)
 shape = SubResource("RectangleShape2D_mrnno")
 
-[node name="Inicio" type="Timer" parent="."]
+[node name="Inicio" type="Timer" parent="Escenario-mini3"]
 wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Fin" type="Timer" parent="."]
+[node name="Fin" type="Timer" parent="Escenario-mini3"]
 wait_time = 25.0
 one_shot = true
 autostart = true
 
-[node name="MostrarGanadores" type="Timer" parent="."]
+[node name="MostrarGanadores" type="Timer" parent="Escenario-mini3"]
 wait_time = 3.0
 one_shot = true
 
-[node name="CuentaAtrasInicio" type="AnimatedSprite2D" parent="."]
+[node name="CuentaAtrasInicio" type="AnimatedSprite2D" parent="Escenario-mini3"]
 z_index = 20
 position = Vector2(576, 320)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_l4ceu")
 speed_scale = 0.25
 
-[node name="CuentaAtrasFin" type="AnimatedSprite2D" parent="."]
+[node name="CuentaAtrasFin" type="AnimatedSprite2D" parent="Escenario-mini3"]
 visible = false
 z_index = 20
 position = Vector2(576, 320)
@@ -186,12 +192,12 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_l4ceu")
 speed_scale = 0.25
 
-[connection signal="body_entered" from="Puntos1" to="." method="_on_puntos_body_entered"]
-[connection signal="body_exited" from="Puntos1" to="." method="_on_puntos_body_exited"]
-[connection signal="body_entered" from="Puntos2" to="." method="_on_puntos_body_entered"]
-[connection signal="body_exited" from="Puntos2" to="." method="_on_puntos_body_exited"]
-[connection signal="body_entered" from="Puntos3" to="." method="_on_puntos_body_entered"]
-[connection signal="body_exited" from="Puntos3" to="." method="_on_puntos_body_exited"]
-[connection signal="timeout" from="Inicio" to="." method="_on_inicio_timeout"]
-[connection signal="timeout" from="Fin" to="." method="_on_fin_timeout"]
-[connection signal="timeout" from="MostrarGanadores" to="." method="_on_mostrar_ganadores_timeout"]
+[connection signal="body_entered" from="Escenario-mini3/Puntos1" to="Escenario-mini3" method="_on_puntos_body_entered"]
+[connection signal="body_exited" from="Escenario-mini3/Puntos1" to="Escenario-mini3" method="_on_puntos_body_exited"]
+[connection signal="body_entered" from="Escenario-mini3/Puntos2" to="Escenario-mini3" method="_on_puntos_body_entered"]
+[connection signal="body_exited" from="Escenario-mini3/Puntos2" to="Escenario-mini3" method="_on_puntos_body_exited"]
+[connection signal="body_entered" from="Escenario-mini3/Puntos3" to="Escenario-mini3" method="_on_puntos_body_entered"]
+[connection signal="body_exited" from="Escenario-mini3/Puntos3" to="Escenario-mini3" method="_on_puntos_body_exited"]
+[connection signal="timeout" from="Escenario-mini3/Inicio" to="Escenario-mini3" method="_on_inicio_timeout"]
+[connection signal="timeout" from="Escenario-mini3/Fin" to="Escenario-mini3" method="_on_fin_timeout"]
+[connection signal="timeout" from="Escenario-mini3/MostrarGanadores" to="Escenario-mini3" method="_on_mostrar_ganadores_timeout"]
