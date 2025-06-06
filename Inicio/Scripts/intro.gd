@@ -4,7 +4,7 @@ extends Control
 
 func _ready():
 	label.text = "¡Van a jugar " + str(INICIO.num_jugadores) + " ratas!"
-	
+	INICIO.minijuegos.shuffle()
 	#Contenedor vertical
 	var contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer")
 	
@@ -39,5 +39,5 @@ func _ready():
 
 func _on_jugar_pressed() -> void:
 	#get_tree().change_scene_to_file("res://MINI1/Scenes/escenario-MINI1.tscn")
-	get_tree().change_scene_to_file("res://MINI2/Scenes/MINI2.tscn")
+	get_tree().change_scene_to_file(INICIO.minijuegos.pop_front())
 	#get_tree().change_scene_to_file("res://MINI3/Scenes/escenario-MINI3.tscn")

@@ -60,3 +60,11 @@ func add_containers() -> void:
 		
 
 	
+
+
+func _on_continuar_pressed() -> void:
+	if !INICIO.minijuegos.is_empty():
+		get_tree().change_scene_to_file(INICIO.minijuegos.pop_front())
+	else:
+		#TODO
+		get_tree().change_scene_to_file("escena_ganadores")

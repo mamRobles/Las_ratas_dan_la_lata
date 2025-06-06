@@ -4,7 +4,7 @@ var num_jugadores:int = 0
 var nombres_jugadores = []
 var config = ConfigFile.new()
 const SETTINGS_FILE_PATH="user://settings.ini"
-
+var minijuegos = ["res://MINI1/Scenes/escenario-MINI1.tscn","res://MINI2/Scenes/MINI2.tscn","res://MINI3/Scenes/escenario-MINI3.tscn"]
 func _ready() -> void:
 	if !FileAccess.file_exists(SETTINGS_FILE_PATH):
 		config.set_value("keybindings","ui_right1", "D")

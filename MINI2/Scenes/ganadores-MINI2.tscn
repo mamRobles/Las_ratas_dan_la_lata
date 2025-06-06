@@ -99,3 +99,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_511k0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a48rv")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pga0u")
 text = "CONTINUAR"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
