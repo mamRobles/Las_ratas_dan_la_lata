@@ -131,11 +131,13 @@ func _process(delta):
 				$GatoCazando.position.x += SPEED
 				$"../Pausa".position.x+=SPEED
 				offset += SPEED
+				$barrerainterdimensiona/CollisionShape2D.position.x+=SPEED
 			
 			#Si la camara avanza mucho, mueve el suelo
 			if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
 				$suelo.position.x += screen_size.x
 				$"CaídaAlVacío".position.x+=screen_size.x
+				
 			#Si el escondite desaparece de plano, lo elimina
 			for esc in escondites:
 				if esc.position.x < ($Camera2D.position.x - screen_size.x):
@@ -164,7 +166,7 @@ func generate_esc():
 		var esc_x : int = screen_size.x + offset + 200
 		#El escondite aparecerá a la altura de la pantalla menos la mitad de la altura del suelo 
 		#menos la mitad de la altura del escondite más 30 (para profundidad)
-		var esc_y : int = screen_size.y - (esc_height * esc_scale.y / 2) - (suelo_height / 2) + 30
+		var esc_y : int =  pos1.y - (suelo_height/2)
 		
 		ultimo_escondite = esc		#Actualizar el último escondite
 		add_esc(esc, esc_x, esc_y)  #Añadir escondite
@@ -204,7 +206,7 @@ func generate_fin():
 	var meta_height = meta.texture.get_height()
 	var meta_scale = meta.scale
 	var meta_x : int = 2 * screen_size.x + offset
-	var meta_y : int = (screen_size.y - meta_height * meta_scale.y / 2) - (suelo_height / 2) + 30
+	var meta_y : int = pos1.y - (suelo_height / 2) 
 	
 	meta.position = Vector2i(meta_x, meta_y)
 	add_child(meta)
