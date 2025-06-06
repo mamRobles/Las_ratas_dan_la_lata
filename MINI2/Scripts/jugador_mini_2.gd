@@ -15,6 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if asustado:
 		$AnimatedSprite2D.play("asustado")
+		MINI2.asustados[id]=true
 	else:
 		if !cabreado and !cerrado_a_tiempo:
 			#Si no se ha cabreado por cerrar los ojos antes de tiempo

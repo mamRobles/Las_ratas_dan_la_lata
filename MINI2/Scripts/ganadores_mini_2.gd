@@ -47,7 +47,7 @@ func add_containers() -> void:
 		puntos_total.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		puntos_total.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		
-		if MINI1.muertos[i]:
+		if MINI2.asustados[i]:
 			nombre.add_theme_stylebox_override("normal", style_muerto)
 			sprite.texture = load("res://MINI2/Sprites/ratoncine-asustado.png")
 			puntos_suma.text = "+0 pts"
