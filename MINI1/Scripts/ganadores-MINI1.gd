@@ -36,6 +36,7 @@ func add_containers() -> void:
 		
 		var sprite = TextureRect.new()
 		sprite.name = "SpriteJugador" + str(i+1)
+		sprite.set("size_flags_horizontal", Control.SIZE_SHRINK_CENTER)
 		
 		var puntos_suma = Label.new()
 		puntos_suma.name = "PuntosSumaJugador" + str(i+1)
@@ -77,5 +78,4 @@ func _on_continuar_pressed() -> void:
 	if !INICIO.minijuegos.is_empty():
 		get_tree().change_scene_to_file(INICIO.minijuegos.pop_front())
 	else:
-		#TODO
-		get_tree().change_scene_to_file("escena_ganadores")
+		get_tree().change_scene_to_file("res://Final/Scenes/final.tscn")

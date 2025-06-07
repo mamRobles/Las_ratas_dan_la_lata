@@ -96,9 +96,9 @@ position = Vector2(960, 192)
 
 [node name="Label_jugador2" type="Label" parent="Escenario-mini3"]
 visible = false
-offset_left = 1048.0
+offset_left = 896.0
 offset_top = 64.0
-offset_right = 1088.0
+offset_right = 936.0
 offset_bottom = 87.0
 
 [node name="jugador3_pos" type="Marker2D" parent="Escenario-mini3"]
@@ -116,9 +116,9 @@ position = Vector2(960, 448)
 
 [node name="Label_jugador4" type="Label" parent="Escenario-mini3"]
 visible = false
-offset_left = 1048.0
+offset_left = 896.0
 offset_top = 552.0
-offset_right = 1088.0
+offset_right = 936.0
 offset_bottom = 575.0
 
 [node name="Puntos1" type="Area2D" parent="Escenario-mini3"]
