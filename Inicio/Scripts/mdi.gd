@@ -9,6 +9,11 @@ func _ready() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	var audio_settings = INICIO.load_audio_settings()
 	AudioServer.set_bus_volume_db(_bus, linear_to_db(audio_settings["master_volume"]))
+	var acc_settings = INICIO.load_acc_settings()
+	# daltonismo
+	#alto contraste
+	if acc_settings["altoContraste"]:
+		INICIO.acc="_a"
 func _on_jugarboton_pressed() -> void:
 	print("Botón jugar")
 	# cambiar a juego
