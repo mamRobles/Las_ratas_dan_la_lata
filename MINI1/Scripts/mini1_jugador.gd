@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var areaColision = $Area2D # para interacción de jugadores entre sí
-@onready var accion =0 # sirve para saber si la última tecla pulsada es derecha o izquierda
+@onready var accion =1 # sirve para saber si la última tecla pulsada es derecha o izquierda
 					   # y así definir la animación idle
 @export var tiempodebuff = 1.0 #tiempo que dura el debuff, editable a la derecha
 var debuff :float = 1.0 # variable debuff 

@@ -7,6 +7,7 @@ func _ready():
 	INICIO.minijuegos.shuffle()
 	#Contenedor vertical
 	var contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer")
+	contenedor.add_theme_constant_override("separation", 15)
 	
 	#Atributo style de las etiquetas con los nombres
 	var style = StyleBoxFlat.new()

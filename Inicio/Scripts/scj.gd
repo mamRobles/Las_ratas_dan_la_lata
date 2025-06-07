@@ -1,5 +1,7 @@
 extends Control
 
+const MAX_LONGITUD_NOMBRES = 20
+
 func _on_2PJ_pressed() -> void:
 	INICIO.num_jugadores = 2
 	setNombresJugadores()
@@ -57,6 +59,9 @@ func setNombresJugadores() -> void:
 
 
 func _name_entered(nombre: String) -> void:
+	if nombre.length() > MAX_LONGITUD_NOMBRES:
+		nombre = nombre.substr(0, MAX_LONGITUD_NOMBRES-3) + "..."
+	
 	INICIO.nombres_jugadores.append(nombre)
 	
 	if len(INICIO.nombres_jugadores) == INICIO.num_jugadores:
