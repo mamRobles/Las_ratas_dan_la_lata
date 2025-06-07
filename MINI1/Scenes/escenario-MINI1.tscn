@@ -247,8 +247,8 @@ position = Vector2(1211, 273)
 shape = SubResource("RectangleShape2D_nvt1d")
 
 [connection signal="timeout" from="Node2D/Inicio" to="Node2D" method="_on_inicio_timeout"]
-[connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_fin_timeout"]
+[connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Node2D/InicioGato" to="Node2D" method="_on_inicio_gato_timeout"]
 [connection signal="timeout" from="Node2D/InicioGatoCazando" to="Node2D" method="_on_inicio_gato_cazando_timeout"]
 [connection signal="timeout" from="Node2D/FinGato" to="Node2D" method="_on_fin_gato_timeout"]
