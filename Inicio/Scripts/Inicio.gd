@@ -1,5 +1,5 @@
 extends Node2D
-
+var acc = ""
 var num_jugadores:int = 0
 var nombres_jugadores = []
 var config = ConfigFile.new()
@@ -27,6 +27,9 @@ func _ready() -> void:
 		
 		config.set_value("video", "fullscreen", false)
 		
+		config.set_value("accesibility", "altoContraste", false)
+		config.set_value("accesibility", "daltonismo", false)
+		
 		config.set_value("audio","master_volume",1.0)
 		config.save(SETTINGS_FILE_PATH)
 		
@@ -42,6 +45,17 @@ func load_video_settings():
 	for key in config.get_section_keys("video"):
 		video_settings[key] = config.get_value("video", key)
 	return video_settings
+	
+func save_acc_settings(key:String, value):
+	config.set_value("accesibility",key,value)
+	config.save(SETTINGS_FILE_PATH)
+	
+func load_acc_settings():
+	var acc_settings ={}
+	for key in config.get_section_keys("accesibility"):
+		acc_settings[key] = config.get_value("accesibility", key)
+	return acc_settings
+	
 func save_audio_settings(key: String, value):
 	config.set_value("audio", key, value)
 	config.save(SETTINGS_FILE_PATH)
