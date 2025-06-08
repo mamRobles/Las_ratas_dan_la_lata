@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dh62hwqkxcqix"]
+[gd_scene load_steps=10 format=3 uid="uid://dh62hwqkxcqix"]
 
 [ext_resource type="Script" uid="uid://676x0y0ctvcg" path="res://Inicio/Scripts/mdi.gd" id="1_r7mvp"]
 [ext_resource type="Texture2D" uid="uid://bdvt21rmfhiii" path="res://Sistema/Sprites/mdiFondo.png" id="2_wedwj"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bit5qwtlih0gt" path="res://Sistema/Sprites/opcionesES.png" id="6_ffljh"]
 [ext_resource type="Texture2D" uid="uid://bqtjr47ukdpa2" path="res://Sistema/Sprites/salirjp.png" id="7_ffljh"]
 [ext_resource type="Texture2D" uid="uid://bnghvrv7lygq0" path="res://Sistema/Sprites/salires.png" id="8_w3f5f"]
-[ext_resource type="AudioStream" uid="uid://cbxrgbcsdvwxi" path="res://Sistema/musica_mdi.mp3" id="9_4t80b"]
 [ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="10_ffljh"]
 
 [node name="MDI" type="MarginContainer"]
@@ -76,11 +75,6 @@ texture_pressed = ExtResource("8_w3f5f")
 texture_hover = ExtResource("8_w3f5f")
 ignore_texture_size = true
 stretch_mode = 5
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_4t80b")
-autoplay = true
-parameters/looping = true
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 light_mask = 512
