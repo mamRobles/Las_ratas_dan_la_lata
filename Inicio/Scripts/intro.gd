@@ -25,6 +25,9 @@ func _ready():
 		nombre.name = "NombreJugador" + str(i+1)
 		#Texto de la Label
 		nombre.text = INICIO.nombres_jugadores[i]
+		var font = load("res://Sistema/ZCOOLKuaiLe-Regular.ttf")
+		nombre.add_theme_font_override("font",font)
+		nombre.add_theme_font_size_override("font_size", 28)
 		#Se añade el nodo al contenedor
 		contenedor.add_child(nombre)
 		
