@@ -63,8 +63,10 @@ func add_player(indice):
 	jugador.derecha="ui_right{n}".format({"n":indice+1})
 	jugador.arriba="ui_up{n}".format({"n":indice+1})
 	jugador.abajo="ui_down{n}".format({"n":indice+1})
+	
 	jugador.apply_scale(Vector2(4.0, 4.0))
 	add_child(jugador)
+	#jugador.cambiar_color(indice+1) no funciona
 	
 	if indices_aleatorios[indice] == 0:
 		$LabelPlayer1.text = INICIO.nombres_jugadores[indice]
