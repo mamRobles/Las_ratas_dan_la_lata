@@ -1,5 +1,5 @@
 extends Node2D
-var acc = ""
+var acc = false
 var num_jugadores:int = 0
 var nombres_jugadores = []
 var config = ConfigFile.new()

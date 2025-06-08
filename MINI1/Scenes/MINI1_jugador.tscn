@@ -1,9 +1,22 @@
-[gd_scene load_steps=26 format=3 uid="uid://dm2tmk4shr1vx"]
+[gd_scene load_steps=28 format=3 uid="uid://dm2tmk4shr1vx"]
 
 [ext_resource type="Texture2D" uid="uid://pi82mnverln7" path="res://MINI1/Sprites/rat.png" id="1_nr0b5"]
 [ext_resource type="Script" uid="uid://cgkqfc4db1sn3" path="res://MINI1/Scripts/mini1_jugador.gd" id="1_p5gs6"]
+[ext_resource type="Shader" uid="uid://bwa3x6qcbteos" path="res://MINI1/MINI1_jugador.gdshader" id="2_ce6un"]
 [ext_resource type="Texture2D" uid="uid://mkiyagmybkyx" path="res://MINI1/Sprites/mouse.png" id="3_kwwly"]
 [ext_resource type="Texture2D" uid="uid://cmhahcvwh6poq" path="res://MINI1/Sprites/rat2.png" id="4_rwoiw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5k5b"]
+shader = ExtResource("2_ce6un")
+shader_parameter/thickness = 0.0
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5gs6"]
 atlas = ExtResource("1_nr0b5")
@@ -208,9 +221,10 @@ script = ExtResource("1_p5gs6")
 tiempodebuff = 2.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_n5k5b")
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_f45f5")
-animation = &"muerto_izquierda"
+animation = &"derecha"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mugjy")

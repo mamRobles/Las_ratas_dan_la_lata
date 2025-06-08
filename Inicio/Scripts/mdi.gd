@@ -13,7 +13,7 @@ func _ready() -> void:
 	# daltonismo
 	#alto contraste
 	if acc_settings["altoContraste"]:
-		INICIO.acc="_a"
+		INICIO.acc=true
 func _on_jugarboton_pressed() -> void:
 	print("Botón jugar")
 	# cambiar a juego
