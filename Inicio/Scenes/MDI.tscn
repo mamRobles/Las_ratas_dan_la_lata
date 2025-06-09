@@ -11,15 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="10_ffljh"]
 
 [node name="MDI" type="MarginContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -696.0
-offset_top = -404.0
-offset_right = 696.0
-offset_bottom = 404.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 120
@@ -87,5 +81,5 @@ expand_mode = 3
 
 [connection signal="pressed" from="Opciones/Jugar-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="Opciones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
-[connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_salirboton_pressed"]
+[connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]

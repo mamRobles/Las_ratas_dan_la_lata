@@ -1,9 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxwxc1atnp0bp"]
+[gd_scene load_steps=12 format=3 uid="uid://bxwxc1atnp0bp"]
 
 [ext_resource type="Script" uid="uid://c44i3h46e2nbb" path="res://Inicio/Scripts/mdo.gd" id="1_tvvv7"]
 [ext_resource type="Script" uid="uid://dsxj8j1nxlkh1" path="res://Inicio/Scripts/volumen.gd" id="2_caih2"]
+[ext_resource type="Shader" uid="uid://couu76j0ckis6" path="res://Inicio/intro.gdshader" id="2_w3b6x"]
 [ext_resource type="Script" uid="uid://dtr0h8yuqgu6v" path="res://Inicio/Scripts/fullscreen_2.gd" id="3_0s8l7"]
+[ext_resource type="FontFile" uid="uid://briqh76e868qq" path="res://Sistema/ZCOOLKuaiLe-Regular.ttf" id="3_f387q"]
 [ext_resource type="Script" uid="uid://cbk7f073c387a" path="res://Inicio/Scripts/check_box.gd" id="4_k00s5"]
+[ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="5_ocoj3"]
+[ext_resource type="FontFile" uid="uid://c02jnbv0ks7j" path="res://Inicio/Bugfast.otf" id="7_t71fu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f387q"]
+shader = ExtResource("2_w3b6x")
+shader_parameter/effect_filling = 1.0
+shader_parameter/angle = 90.0
+shader_parameter/keep_saturation = 0.0
+shader_parameter/keep_luminance = 1.0
+shader_parameter/color_start = Color(1, 0.501961, 0, 1)
+shader_parameter/start_pos = 0.0
+shader_parameter/color_mid = Color(0.556863, 0.862745, 0.72549, 1)
+shader_parameter/mid_pos = 0.5
+shader_parameter/color_end = Color(0, 0.713726, 0.996078, 1)
+shader_parameter/end_pos = 1.0
+shader_parameter/midpos_enabled = true
+shader_parameter/range_start = 0.0
+shader_parameter/range_end = 1.0
+shader_parameter/range_softedge = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t71fu"]
+bg_color = Color(0.0392157, 0.329412, 0.415686, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2ybt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="MDO" type="Control"]
 layout_mode = 3
@@ -14,84 +54,130 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tvvv7")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_f387q")
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+theme_override_styles/panel = SubResource("StyleBoxFlat_t71fu")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t71fu")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/PanelContainer"]
+layout_mode = 2
 theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 80
 theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(10, 20)
 layout_mode = 2
-text = "Este es el menú de opciones"
+theme_override_fonts/normal_font = ExtResource("3_f387q")
+theme_override_font_sizes/normal_font_size = 40
+text = "Menú de opciones"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(70, 20)
 layout_mode = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_f387q")
+theme_override_font_sizes/normal_font_size = 20
 text = "Volumen"
 scroll_active = false
 
-[node name="Volumen" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Volumen" type="HSlider" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 script = ExtResource("2_caih2")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_f387q")
+theme_override_font_sizes/normal_font_size = 20
 text = "Pantalla completa"
 scroll_active = false
 
-[node name="fullscreen" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="fullscreen" type="CheckBox" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 script = ExtResource("3_0s8l7")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
-custom_minimum_size = Vector2(200, 0)
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_f387q")
+theme_override_font_sizes/normal_font_size = 20
 text = "Modo de alto contraste"
 scroll_active = false
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="CheckBox" type="CheckBox" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 script = ExtResource("4_k00s5")
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
-text = "volver"
 
-[connection signal="drag_ended" from="MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="." method="_on_volumen_drag_ended"]
-[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="MarginContainer/VBoxContainer/HBoxContainer/Volumen" method="_on_mouse_exited"]
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="MarginContainer/VBoxContainer/HBoxContainer/Volumen" method="_on_value_changed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer2/fullscreen" to="MarginContainer/VBoxContainer/HBoxContainer2/fullscreen" method="_on_toggled"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer3/CheckBox" to="MarginContainer/VBoxContainer/HBoxContainer3/CheckBox" method="_on_toggled"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.448734, 0.582967, 0.661296, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_t71fu")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_c2ybt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c2ybt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c2ybt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c2ybt")
+text = "Volver"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+light_mask = 2
+visibility_layer = 2
+z_index = -18
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_ocoj3")
+expand_mode = 3
+
+[connection signal="drag_ended" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="." method="_on_volumen_drag_ended"]
+[connection signal="mouse_exited" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volumen" method="_on_mouse_exited"]
+[connection signal="value_changed" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volumen" to="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volumen" method="_on_value_changed"]
+[connection signal="toggled" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/fullscreen" to="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/fullscreen" method="_on_toggled"]
+[connection signal="toggled" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/CheckBox" to="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/CheckBox" method="_on_toggled"]
+[connection signal="pressed" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
