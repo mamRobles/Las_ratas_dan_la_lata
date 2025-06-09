@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl3a41nq0hgg6"]
+[gd_scene load_steps=3 format=3 uid="uid://dl3a41nq0hgg6"]
 
 [ext_resource type="AudioStream" uid="uid://cbxrgbcsdvwxi" path="res://Sistema/musica_mdi.mp3" id="1_7da70"]
+[ext_resource type="Script" uid="uid://jsuyx1mciffd" path="res://Sistema/Scripts/music_player.gd" id="2_6x5ku"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
 process_mode = 3
 stream = ExtResource("1_7da70")
 autoplay = true
 parameters/looping = true
+script = ExtResource("2_6x5ku")

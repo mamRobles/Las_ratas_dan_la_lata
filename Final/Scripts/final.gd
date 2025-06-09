@@ -89,7 +89,7 @@ func _on_volver_a_jugar_pressed() -> void:
 	MINI2.asustados = [false, false, false, false]
 	MINI3.puntos_MINI3 = [0, 0, 0, 0]
 	MINI3.empezar = false
-	
+	MusicPlayer.cambiarMusica("mdi")
 	get_tree().change_scene_to_file("res://Inicio/Scenes/MDI.tscn")
 
 
