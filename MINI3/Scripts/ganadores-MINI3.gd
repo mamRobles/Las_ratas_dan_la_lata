@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func add_containers() -> void:
 	
-	var h_contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer")
+	var h_contenedor = get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer")
 	
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color8(0, 120, 80)  #Color de la caja

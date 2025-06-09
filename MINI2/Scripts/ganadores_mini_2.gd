@@ -5,17 +5,17 @@ func _ready() -> void:
 
 func add_containers() -> void:
 	
-	var h_contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer")
+	var h_contenedor = get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer")
 	
 	var style_vivo = StyleBoxFlat.new()
-	style_vivo.bg_color = Color8(0, 120, 80)  #Color de la caja
+	style_vivo.bg_color = Color8(28, 100, 169)  #Color de la caja
 	style_vivo.corner_radius_top_left = 10    #Redondear bordes
 	style_vivo.corner_radius_top_right = 10
 	style_vivo.corner_radius_bottom_left = 10
 	style_vivo.corner_radius_bottom_right = 10
 	
 	var style_muerto = StyleBoxFlat.new()
-	style_muerto.bg_color = Color8(0, 60, 40)  #Color de la caja
+	style_muerto.bg_color = Color8(7, 23, 66)  #Color de la caja
 	style_muerto.corner_radius_top_left = 10    #Redondear bordes
 	style_muerto.corner_radius_top_right = 10
 	style_muerto.corner_radius_bottom_left = 10

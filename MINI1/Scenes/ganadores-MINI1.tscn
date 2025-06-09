@@ -1,54 +1,42 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8ypkdj4r36ii"]
+[gd_scene load_steps=11 format=3 uid="uid://c8ypkdj4r36ii"]
 
 [ext_resource type="Script" uid="uid://blhjcfh68atd1" path="res://MINI1/Scripts/ganadores-MINI1.gd" id="1_htp75"]
+[ext_resource type="Shader" uid="uid://couu76j0ckis6" path="res://Inicio/intro.gdshader" id="2_wx6lg"]
+[ext_resource type="FontFile" uid="uid://briqh76e868qq" path="res://Sistema/ZCOOLKuaiLe-Regular.ttf" id="3_u7d8m"]
+[ext_resource type="StyleBox" uid="uid://dnshdqyfowjc1" path="res://Inicio/SCJ2jugadoresFocus.tres" id="4_6jvmw"]
+[ext_resource type="StyleBox" uid="uid://7hyp1rmifdgn" path="res://Inicio/SCJ2jugadoresHover.tres" id="5_oilkr"]
+[ext_resource type="StyleBox" uid="uid://bicqyblk1cml8" path="res://Inicio/SCJ2jugadoresPressedtres.tres" id="6_46gx1"]
+[ext_resource type="StyleBox" uid="uid://quefu42ydcfb" path="res://Inicio/SCJ2jugadoresNormal.tres" id="7_lu1fo"]
+[ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="8_6jvmw"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wx6lg"]
-bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpw8g"]
+shader = ExtResource("2_wx6lg")
+shader_parameter/effect_filling = 1.0
+shader_parameter/angle = 90.0
+shader_parameter/keep_saturation = 0.0
+shader_parameter/keep_luminance = 1.0
+shader_parameter/color_start = Color(1, 0.501961, 0, 1)
+shader_parameter/start_pos = 0.0
+shader_parameter/color_mid = Color(0.556863, 0.862745, 0.72549, 1)
+shader_parameter/mid_pos = 0.5
+shader_parameter/color_end = Color(0, 0.713726, 0.996078, 1)
+shader_parameter/end_pos = 1.0
+shader_parameter/midpos_enabled = true
+shader_parameter/range_start = 0.0
+shader_parameter/range_end = 1.0
+shader_parameter/range_softedge = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inlc8"]
+bg_color = Color(0.0392157, 0.329412, 0.415686, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0, 0.470588, 0.313726, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htp75"]
-bg_color = Color(0, 0.305882, 0.203922, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gpw8g"]
-bg_color = Color(0, 0.388235, 0.258824, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ik6xb"]
-bg_color = Color(0, 0.223529, 0.14902, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x28ss"]
-bg_color = Color(0, 0.470588, 0.313726, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -59,49 +47,71 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_htp75")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_gpw8g")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
 anchor_top = 0.1
 anchor_right = 0.9
 anchor_bottom = 0.9
-theme_override_styles/panel = SubResource("StyleBoxFlat_wx6lg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_inlc8")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_inlc8")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_u7d8m")
 theme_override_font_sizes/font_size = 30
 text = "Y los supervivientes son..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Continuar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Continuar" type="Button" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_u7d8m")
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxFlat_htp75")
-theme_override_styles/hover = SubResource("StyleBoxFlat_gpw8g")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ik6xb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_x28ss")
+theme_override_styles/focus = ExtResource("4_6jvmw")
+theme_override_styles/hover = ExtResource("5_oilkr")
+theme_override_styles/pressed = ExtResource("6_46gx1")
+theme_override_styles/normal = ExtResource("7_lu1fo")
 text = "CONTINUAR"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+light_mask = 2
+visibility_layer = 2
+z_index = -18
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_6jvmw")
+expand_mode = 3
+
+[connection signal="pressed" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
