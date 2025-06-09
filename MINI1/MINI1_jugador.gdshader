@@ -36,7 +36,7 @@ vec4 tex(sampler2D sampler, vec2 uv){
 }
 
 void fragment(){
-	
+
 	vec2 o = offset / vec2(textureSize(TEXTURE, 0));
 	vec2 uv = UV;
 	uv -= vec2(0.5);
@@ -47,9 +47,9 @@ void fragment(){
 		}
 	uv += vec2(0.5);
 	vec2 size = vec2(thickness) / vec2(textureSize(TEXTURE, 0));
-	
+
 	vec4 sprite_color = tex(TEXTURE, uv);
-	
+
 	float alpha = sprite_color.a;
 	if (square_border){
 		for(int i=0;i<ring_count;++i){
