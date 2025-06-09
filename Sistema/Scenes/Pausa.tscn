@@ -1,7 +1,20 @@
-[gd_scene load_steps=10 format=3 uid="uid://dng7iryyfov06"]
+[gd_scene load_steps=12 format=3 uid="uid://dng7iryyfov06"]
 
 [ext_resource type="Script" uid="uid://fcyuvrj8bmu4" path="res://Sistema/Scripts/pausa.gd" id="1_fbpjw"]
 [ext_resource type="Texture2D" uid="uid://tltjphmrw7yf" path="res://Sistema/Sprites/pausa.png" id="2_ncwrm"]
+[ext_resource type="Shader" uid="uid://bwa3x6qcbteos" path="res://MINI1/MINI1_jugador.gdshader" id="2_twwvk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5k5b"]
+shader = ExtResource("2_twwvk")
+shader_parameter/thickness = 0.0
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1af34"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 1)
@@ -68,6 +81,7 @@ script = ExtResource("1_fbpjw")
 
 [node name="Boton_pausa" type="TextureButton" parent="."]
 process_mode = 1
+material = SubResource("ShaderMaterial_n5k5b")
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 512.0
