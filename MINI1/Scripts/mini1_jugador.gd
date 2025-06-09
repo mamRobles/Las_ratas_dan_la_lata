@@ -23,6 +23,9 @@ var id:int =1
 func _ready() -> void:
 	_animated_sprite.play("parado_derecha")
 	areaColision.body_entered.connect(add_debuff)
+	if INICIO.acc:
+		$AnimatedSprite2D.material.set("shader_parameter/thickness",0.5)
+		 
 	
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -44,6 +47,25 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func cambiar_color(indice):
+	if INICIO.acc:
+	##estos colores siguen la paleta de accesibilidad del color de IBM
+		## apta para cualquier tipo de daltonismo
+		## los html son:
+		## #648FFF -> azul -> 0.392,0.561,1
+		## #785EF0 -> morado -> 0.471,0.369,0.941
+		## #DC267F -> magenta -> rgb01(0.863, 0.149, 0.498)
+		## #FE6100 -> naranja -> rgb01(0.996, 0.38, 0)
+		## #FFB000 - > amarillo -> rgb01(1, 0.69, 0)
+		match indice:
+			1:
+				$AnimatedSprite2D.material.set("shader_parameter/outline_color", Color(0.863,0.149,0.498))
+			2:
+				$AnimatedSprite2D.material.set("shader_parameter/outline_color", Color(0.392,0.561,1.0))
+			3:
+				$AnimatedSprite2D.material.set("shader_parameter/outline_color", Color(1.0,0.69,0.0))
+			4:
+				$AnimatedSprite2D.material.set("shader_parameter/outline_color", Color(0.471,0.369,0.941))
 
 func _process(_delta):
 	if muerto:

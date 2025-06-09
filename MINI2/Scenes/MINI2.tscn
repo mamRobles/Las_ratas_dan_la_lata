@@ -9,21 +9,29 @@
 
 [node name="Pausa" parent="." instance=ExtResource("1_rpd07")]
 z_index = 10
+mouse_filter = 1
 
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("2_heduh")
 
 [node name="fondo" type="Sprite2D" parent="Node2D"]
+light_mask = 512
+visibility_layer = 512
+z_index = -16
 position = Vector2(-26, -2)
 scale = Vector2(0.48, 0.48)
 texture = ExtResource("2_nr5u8")
 centered = false
 
 [node name="Imagen-mini2" parent="Node2D" instance=ExtResource("3_heduh")]
+show_behind_parent = true
+light_mask = 512
+visibility_layer = 512
 offset_left = 285.0
 offset_top = 100.0
 offset_right = 885.0
 offset_bottom = 450.0
+mouse_filter = 2
 
 [node name="hora_de_la_bestia" type="Timer" parent="Node2D"]
 wait_time = 50.0

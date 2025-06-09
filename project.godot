@@ -21,6 +21,7 @@ INICIO="*res://Inicio/Scripts/Inicio.gd"
 MINI1="*res://MINI1/Scripts/mini_1.gd"
 MINI2="*res://MINI2/Scenes/variables-MINI2.tscn"
 MINI3="*res://MINI3/Scripts/mini_3.gd"
+MusicPlayer="*res://Sistema/Scenes/music_player.tscn"
 
 [input]
 

@@ -16,10 +16,10 @@ func _on_4PJ_pressed() -> void:
 	
 func setNombresJugadores() -> void:
 	#Contenedor con los nodos LineEdit
-	var contenedor = get_node("PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2")
+	var contenedor = get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2")
 	
 	#Limpiar la lista de nombres y el contenedor
-	get_node("PanelContainer/MarginContainer/VBoxContainer/Button").disabled = true
+	get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/Button").disabled = true
 	INICIO.nombres_jugadores.clear()
 	if contenedor.get_child_count() > 0:  
 		for child in contenedor.get_children(): 
@@ -27,12 +27,17 @@ func setNombresJugadores() -> void:
 	
 	#Atributo style de los objetos LineEdit
 	var style = StyleBoxFlat.new()
-	style.bg_color = Color8(0, 120, 80)  #Color de la caja
+	if INICIO.num_jugadores==4:
+		style.bg_color = Color8(0, 119, 133)  #Color de la caja
+	elif INICIO.num_jugadores==3:
+		style.bg_color = Color8(171, 121, 0)  #Color de la caja
+	elif INICIO.num_jugadores==2:
+		style.bg_color = Color8(164, 95, 0)
 	style.corner_radius_top_left = 10    #Redondear bordes
 	style.corner_radius_top_right = 10
 	style.corner_radius_bottom_left = 10
 	style.corner_radius_bottom_right = 10
-	
+
 	#Para cada jugador
 	for i in range(INICIO.num_jugadores):
 		#Se crea un nodo LineEdit
@@ -55,17 +60,22 @@ func setNombresJugadores() -> void:
 		input_field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		
 		#Llama a la función _name_entered() cuando se introduce un nombre
-		input_field.text_submitted.connect(_name_entered)
+		input_field.text_changed.connect(_name_entered.bind(i))
 
 
-func _name_entered(nombre: String) -> void:
+func _name_entered(nombre: String, indice: int) -> void:
 	if nombre.length() > MAX_LONGITUD_NOMBRES:
 		nombre = nombre.substr(0, MAX_LONGITUD_NOMBRES-3) + "..."
-	
-	INICIO.nombres_jugadores.append(nombre)
-	
-	if len(INICIO.nombres_jugadores) == INICIO.num_jugadores:
-		get_node("PanelContainer/MarginContainer/VBoxContainer/Button").disabled = false
+	if INICIO.nombres_jugadores.is_empty() or INICIO.nombres_jugadores.size()<INICIO.num_jugadores:
+		for i in INICIO.num_jugadores:
+			INICIO.nombres_jugadores.append("")
+	INICIO.nombres_jugadores.set(indice, nombre)
+	if !INICIO.setNombres_jugadores[indice]:
+		INICIO.setNombres_jugadores[indice] =true
+		INICIO.nombresPuestos+=1
+		
+	if INICIO.nombresPuestos == INICIO.num_jugadores:
+		get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/Button").disabled = false
 
 
 func _on_continuar_pressed() -> void:

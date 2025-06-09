@@ -39,7 +39,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !ha_salido:
 		if($"Imagen-mini2".sin_evento):
 			$"Imagen-mini2".sin_evento=false

@@ -1,60 +1,78 @@
-[gd_scene load_steps=10 format=3 uid="uid://dng7iryyfov06"]
+[gd_scene load_steps=19 format=3 uid="uid://dng7iryyfov06"]
 
 [ext_resource type="Script" uid="uid://fcyuvrj8bmu4" path="res://Sistema/Scripts/pausa.gd" id="1_fbpjw"]
 [ext_resource type="Texture2D" uid="uid://tltjphmrw7yf" path="res://Sistema/Sprites/pausa.png" id="2_ncwrm"]
+[ext_resource type="Shader" uid="uid://bwa3x6qcbteos" path="res://MINI1/MINI1_jugador.gdshader" id="2_twwvk"]
+[ext_resource type="Shader" uid="uid://couu76j0ckis6" path="res://Inicio/intro.gdshader" id="4_twwvk"]
+[ext_resource type="FontFile" uid="uid://briqh76e868qq" path="res://Sistema/ZCOOLKuaiLe-Regular.ttf" id="5_rgx2a"]
+[ext_resource type="StyleBox" uid="uid://88ajiona10oy" path="res://Inicio/SCJ3jugadoresFocus.tres" id="6_ra7a0"]
+[ext_resource type="StyleBox" uid="uid://dbjcptanntae7" path="res://Inicio/SCJ3jugadoresHover.tres" id="7_bu3gf"]
+[ext_resource type="StyleBox" uid="uid://csn8lopkh5rrq" path="res://Inicio/SCJ3jugadoresPressedtres.tres" id="8_nhh58"]
+[ext_resource type="StyleBox" uid="uid://bcbdt631yhd7f" path="res://Inicio/SCJ3jugadoresNormal.tres" id="9_57106"]
+[ext_resource type="StyleBox" uid="uid://dnshdqyfowjc1" path="res://Inicio/SCJ2jugadoresFocus.tres" id="10_57106"]
+[ext_resource type="StyleBox" uid="uid://7hyp1rmifdgn" path="res://Inicio/SCJ2jugadoresHover.tres" id="11_44qo0"]
+[ext_resource type="StyleBox" uid="uid://bicqyblk1cml8" path="res://Inicio/SCJ2jugadoresPressedtres.tres" id="12_xod26"]
+[ext_resource type="StyleBox" uid="uid://quefu42ydcfb" path="res://Inicio/SCJ2jugadoresNormal.tres" id="13_1sunu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1af34"]
-bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5k5b"]
+shader = ExtResource("2_twwvk")
+shader_parameter/thickness = 0.0
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hq7ir"]
+shader = ExtResource("4_twwvk")
+shader_parameter/effect_filling = 1.0
+shader_parameter/angle = 90.0
+shader_parameter/keep_saturation = 0.0
+shader_parameter/keep_luminance = 1.0
+shader_parameter/color_start = Color(1, 0.501961, 0, 1)
+shader_parameter/start_pos = 0.0
+shader_parameter/color_mid = Color(0.556863, 0.862745, 0.72549, 1)
+shader_parameter/mid_pos = 0.5
+shader_parameter/color_end = Color(0, 0.713726, 0.996078, 1)
+shader_parameter/end_pos = 1.0
+shader_parameter/midpos_enabled = true
+shader_parameter/range_start = 0.0
+shader_parameter/range_end = 1.0
+shader_parameter/range_softedge = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ra7a0"]
+bg_color = Color(0.0392157, 0.329412, 0.415686, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0, 0.470588, 0.313726, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_twwvk"]
-bg_color = Color(0, 0.470588, 0.313726, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_44qo0"]
+shader = ExtResource("4_twwvk")
+shader_parameter/effect_filling = 1.0
+shader_parameter/angle = 90.0
+shader_parameter/keep_saturation = 0.0
+shader_parameter/keep_luminance = 1.0
+shader_parameter/color_start = Color(1, 0.501961, 0, 1)
+shader_parameter/start_pos = 0.0
+shader_parameter/color_mid = Color(0.556863, 0.862745, 0.72549, 1)
+shader_parameter/mid_pos = 0.5
+shader_parameter/color_end = Color(0, 0.713726, 0.996078, 1)
+shader_parameter/end_pos = 1.0
+shader_parameter/midpos_enabled = true
+shader_parameter/range_start = 0.0
+shader_parameter/range_end = 1.0
+shader_parameter/range_softedge = 0.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hq7ir"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3cgb8"]
-bg_color = Color(0, 0.305882, 0.203922, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwjyq"]
-bg_color = Color(0, 0.388235, 0.258824, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kxdb"]
-bg_color = Color(0, 0.223529, 0.14902, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgx2a"]
-bg_color = Color(0, 0.470588, 0.313726, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
 
 [node name="Pausa" type="Control"]
 process_mode = 3
@@ -68,6 +86,7 @@ script = ExtResource("1_fbpjw")
 
 [node name="Boton_pausa" type="TextureButton" parent="."]
 process_mode = 1
+material = SubResource("ShaderMaterial_n5k5b")
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 512.0
@@ -89,7 +108,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Menu_Pausa"]
+[node name="PanelContainer2" type="PanelContainer" parent="Menu_Pausa"]
+material = SubResource("ShaderMaterial_hq7ir")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
@@ -98,63 +118,70 @@ anchor_right = 0.7
 anchor_bottom = 0.7
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_1af34")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ra7a0")
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu_Pausa/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Menu_Pausa/PanelContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ra7a0")
+
+[node name="MarginContainer" type="MarginContainer" parent="Menu_Pausa/PanelContainer2/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu_Pausa/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("5_rgx2a")
 text = "Menú de pausa"
 horizontal_alignment = 1
 
-[node name="Panel" type="Panel" parent="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Panel2" type="Panel" parent="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_44qo0")
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_twwvk")
 
-[node name="HSeparator" type="HSeparator" parent="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxTexture_hq7ir")
 
-[node name="Volver_juego" type="Button" parent="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Volver_juego" type="Button" parent="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("5_rgx2a")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxFlat_3cgb8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rwjyq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7kxdb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgx2a")
+theme_override_styles/focus = ExtResource("6_ra7a0")
+theme_override_styles/hover = ExtResource("7_bu3gf")
+theme_override_styles/pressed = ExtResource("8_nhh58")
+theme_override_styles/normal = ExtResource("9_57106")
 text = "Volver al juego"
 
-[node name="HSeparator2" type="HSeparator" parent="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxTexture_hq7ir")
 
-[node name="Menu_principal" type="Button" parent="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Menu_principal" type="Button" parent="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("5_rgx2a")
 theme_override_font_sizes/font_size = 20
-theme_override_styles/focus = SubResource("StyleBoxFlat_3cgb8")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rwjyq")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_7kxdb")
-theme_override_styles/normal = SubResource("StyleBoxFlat_rgx2a")
+theme_override_styles/focus = ExtResource("10_57106")
+theme_override_styles/hover = ExtResource("11_44qo0")
+theme_override_styles/pressed = ExtResource("12_xod26")
+theme_override_styles/normal = ExtResource("13_1sunu")
 text = "Menú principal"
 
 [connection signal="pressed" from="Boton_pausa" to="." method="_on_boton_pausa_pressed"]
-[connection signal="pressed" from="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer/Volver_juego" to="." method="_on_volver_juego_pressed"]
-[connection signal="pressed" from="Menu_Pausa/PanelContainer/MarginContainer/VBoxContainer/Menu_principal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/Volver_juego" to="." method="_on_volver_juego_pressed"]
+[connection signal="pressed" from="Menu_Pausa/PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/Menu_principal" to="." method="_on_menu_principal_pressed"]

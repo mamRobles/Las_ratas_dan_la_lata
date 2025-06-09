@@ -1,7 +1,7 @@
 extends Control
-@onready var fullscreen = $MarginContainer/VBoxContainer/HBoxContainer2/fullscreen
-@onready var volumen = $MarginContainer/VBoxContainer/HBoxContainer/Volumen
-@onready var acc = $MarginContainer/VBoxContainer/HBoxContainer3/CheckBox
+@onready var fullscreen = $PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/fullscreen
+@onready var volumen = $PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volumen
+@onready var acc = $PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/CheckBox
 func _ready() -> void:
 	var video_settings = INICIO.load_video_settings()
 	fullscreen.button_pressed=video_settings.fullscreen
@@ -18,5 +18,5 @@ func _on_button_pressed() -> void:
 
 func _on_volumen_drag_ended(value_changed: bool) -> void:
 	if (value_changed):
-		INICIO.save_audio_settings("master_volume", $MarginContainer/VBoxContainer/HBoxContainer/Volumen.value)
+		INICIO.save_audio_settings("master_volume", $PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Volumen.value)
 	pass # Replace with function body.

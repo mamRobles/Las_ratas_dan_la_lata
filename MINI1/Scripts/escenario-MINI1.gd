@@ -63,8 +63,10 @@ func add_player(indice):
 	jugador.derecha="ui_right{n}".format({"n":indice+1})
 	jugador.arriba="ui_up{n}".format({"n":indice+1})
 	jugador.abajo="ui_down{n}".format({"n":indice+1})
+	
 	jugador.apply_scale(Vector2(4.0, 4.0))
 	add_child(jugador)
+	#jugador.cambiar_color(indice+1) no funciona
 	
 	if indices_aleatorios[indice] == 0:
 		$LabelPlayer1.text = INICIO.nombres_jugadores[indice]
@@ -104,7 +106,7 @@ func _ready():
 	
 	
 
-func _process(delta):
+func _process(_delta):
 	if MINI1.empezar:
 		if not todos_muertos:
 			todos_muertos = true
@@ -158,9 +160,9 @@ func generate_esc():
 		esc = tipo.instantiate()	#Instancia de dicha escena
 		
 		#Altura del escondite
-		var esc_height = esc.get_node("Sprite2D").texture.get_height()
+		var _esc_height = esc.get_node("Sprite2D").texture.get_height()
 		#Escala del escondite
-		var esc_scale = esc.get_node("Sprite2D").scale
+		var _esc_scale = esc.get_node("Sprite2D").scale
 		#El escondite aparecerá en el extremo derecho de la pantalla más el offset
 		#de ese instante más 100 (para que aparezca más allá del borde y no popee)
 		var esc_x : int = screen_size.x + offset + 200
@@ -203,8 +205,8 @@ func salir_escondite(body):
 func generate_fin():
 	meta = meta_scene.instantiate()
 
-	var meta_height = meta.texture.get_height()
-	var meta_scale = meta.scale
+	var _meta_height = meta.texture.get_height()
+	var _meta_scale = meta.scale
 	var meta_x : int = 2 * screen_size.x + offset
 	var meta_y : int = pos1.y - (suelo_height / 2) 
 	

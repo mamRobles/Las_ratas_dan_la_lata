@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	var contenedorV = get_node("PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2")
+	var contenedorV = get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2")
 	
 	#Atributo style de las etiquetas con los nombres
 	var style = StyleBoxFlat.new()

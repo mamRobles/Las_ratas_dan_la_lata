@@ -1,54 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://mmacwyn6vnof"]
+[gd_scene load_steps=8 format=3 uid="uid://mmacwyn6vnof"]
 
 [ext_resource type="Script" uid="uid://ct7jtvdwk0jo7" path="res://Inicio/Scripts/intro.gd" id="1_s2ta7"]
+[ext_resource type="Shader" uid="uid://couu76j0ckis6" path="res://Inicio/intro.gdshader" id="2_2vyf7"]
+[ext_resource type="FontFile" uid="uid://c02jnbv0ks7j" path="res://Inicio/Bugfast.otf" id="3_36s2h"]
+[ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="4_2a6o2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_36s2h"]
+shader = ExtResource("2_2vyf7")
+shader_parameter/effect_filling = 1.0
+shader_parameter/angle = 90.0
+shader_parameter/keep_saturation = 0.0
+shader_parameter/keep_luminance = 1.0
+shader_parameter/color_start = Color(1, 0.501961, 0, 1)
+shader_parameter/start_pos = 0.0
+shader_parameter/color_mid = Color(0.556863, 0.862745, 0.72549, 1)
+shader_parameter/mid_pos = 0.5
+shader_parameter/color_end = Color(0, 0.713726, 0.996078, 1)
+shader_parameter/end_pos = 1.0
+shader_parameter/midpos_enabled = true
+shader_parameter/range_start = 0.0
+shader_parameter/range_end = 1.0
+shader_parameter/range_softedge = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2ta7"]
-bg_color = Color(0.117647, 0.117647, 0.117647, 1)
+bg_color = Color(0.0392157, 0.329412, 0.415686, 1)
 border_width_left = 10
 border_width_top = 10
 border_width_right = 10
 border_width_bottom = 10
-border_color = Color(0, 0.470588, 0.313726, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayt76"]
-bg_color = Color(0, 0.305882, 0.203922, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a8ye"]
-bg_color = Color(0, 0.388235, 0.258824, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0a7ni"]
-bg_color = Color(0, 0.223529, 0.14902, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y72e6"]
-bg_color = Color(0, 0.470588, 0.313726, 1)
+bg_color = Color(0.6, 0.6, 0.6, 0)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
 
 [node name="INTRO" type="Control"]
 layout_mode = 3
@@ -59,7 +50,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s2ta7")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+show_behind_parent = true
+light_mask = 2
+visibility_layer = 2
+z_index = -18
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_2a6o2")
+expand_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_36s2h")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
@@ -68,44 +74,51 @@ anchor_right = 0.9
 anchor_bottom = 0.9
 theme_override_styles/panel = SubResource("StyleBoxFlat_s2ta7")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2ta7")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.0
 alignment = 2
 
-[node name="Jugar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer3"]
+[node name="Jugar" type="Button" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxFlat_ayt76")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7a8ye")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_0a7ni")
+theme_override_colors/font_color = Color(0.448734, 0.582967, 0.661296, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_36s2h")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_y72e6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y72e6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y72e6")
 theme_override_styles/normal = SubResource("StyleBoxFlat_y72e6")
 text = "JUGAR"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer3/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer3/Jugar" to="." method="_on_jugar_pressed"]

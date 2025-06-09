@@ -1,20 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dh62hwqkxcqix"]
+[gd_scene load_steps=10 format=3 uid="uid://dh62hwqkxcqix"]
 
 [ext_resource type="Script" uid="uid://676x0y0ctvcg" path="res://Inicio/Scripts/mdi.gd" id="1_r7mvp"]
-[ext_resource type="Texture2D" uid="uid://b24mm0k612q1r" path="res://Inicio/Sprites/rata-MDI.png" id="1_tjdt8"]
-[ext_resource type="Texture2D" uid="uid://bvvbkfk8fyoto" path="res://Inicio/Sprites/titulo-MDI.png" id="2_r7mvp"]
-[ext_resource type="Texture2D" uid="uid://la43v7tjgf3h" path="res://Inicio/Sprites/Opciones-MDI.png" id="3_lm3mu"]
-[ext_resource type="Texture2D" uid="uid://qjtaai4m4bmc" path="res://Inicio/Sprites/Jugar-MDI.png" id="4_2n4ot"]
-[ext_resource type="Texture2D" uid="uid://ccqj82li8826c" path="res://Inicio/Sprites/salir-MDI.png" id="6_lm3mu"]
+[ext_resource type="Texture2D" uid="uid://bdvt21rmfhiii" path="res://Sistema/Sprites/mdiFondo.png" id="2_wedwj"]
+[ext_resource type="Texture2D" uid="uid://dd0jmafn854ed" path="res://Sistema/Sprites/jugarJP.png" id="3_17n3v"]
+[ext_resource type="Texture2D" uid="uid://ikxojykkvonw" path="res://Sistema/Sprites/jugarES.png" id="4_4t80b"]
+[ext_resource type="Texture2D" uid="uid://dwgo07yjrkc4m" path="res://Sistema/Sprites/opcionesJP.png" id="5_4t80b"]
+[ext_resource type="Texture2D" uid="uid://bit5qwtlih0gt" path="res://Sistema/Sprites/opcionesES.png" id="6_ffljh"]
+[ext_resource type="Texture2D" uid="uid://bqtjr47ukdpa2" path="res://Sistema/Sprites/salirjp.png" id="7_ffljh"]
+[ext_resource type="Texture2D" uid="uid://bnghvrv7lygq0" path="res://Sistema/Sprites/salires.png" id="8_w3f5f"]
+[ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="10_ffljh"]
 
 [node name="MDI" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -52.0
-offset_top = -6.0
-offset_right = 53.0
-offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 120
@@ -23,58 +22,64 @@ theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_r7mvp")
 
-[node name="SplitContainer" type="SplitContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -4
+custom_minimum_size = Vector2(1152, 648)
 layout_mode = 2
-drag_area_highlight_in_editor = true
-
-[node name="Izquierda" type="CenterContainer" parent="SplitContainer"]
-layout_mode = 2
-
-[node name="Rata" type="TextureRect" parent="SplitContainer/Izquierda"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-texture = ExtResource("1_tjdt8")
-expand_mode = 5
+size_flags_horizontal = 4
+texture = ExtResource("2_wedwj")
+expand_mode = 2
 stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SplitContainer"]
+[node name="Opciones" type="VBoxContainer" parent="."]
 layout_mode = 2
-
-[node name="Título" type="TextureRect" parent="SplitContainer/VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2_r7mvp")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Opciones" type="VBoxContainer" parent="SplitContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Jugar-boton" type="TextureButton" parent="SplitContainer/VBoxContainer/Opciones"]
+[node name="HSeparator" type="HSeparator" parent="Opciones"]
+z_index = -595
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Jugar-boton" type="TextureButton" parent="Opciones"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture_normal = ExtResource("4_2n4ot")
+texture_normal = ExtResource("3_17n3v")
+texture_pressed = ExtResource("4_4t80b")
+texture_hover = ExtResource("4_4t80b")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Opciones boton" type="TextureButton" parent="SplitContainer/VBoxContainer/Opciones"]
+[node name="Opciones boton" type="TextureButton" parent="Opciones"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture_normal = ExtResource("3_lm3mu")
+texture_normal = ExtResource("5_4t80b")
+texture_pressed = ExtResource("6_ffljh")
+texture_hover = ExtResource("6_ffljh")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Salir-boton" type="TextureButton" parent="SplitContainer/VBoxContainer/Opciones"]
+[node name="Salir-boton" type="TextureButton" parent="Opciones"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-texture_normal = ExtResource("6_lm3mu")
+texture_normal = ExtResource("7_ffljh")
+texture_pressed = ExtResource("8_w3f5f")
+texture_hover = ExtResource("8_w3f5f")
 ignore_texture_size = true
 stretch_mode = 5
 
-[connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Jugar-boton" to="." method="_on_jugarboton_pressed"]
-[connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
-[connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
-[connection signal="pressed" from="SplitContainer/VBoxContainer/Opciones/Salir-boton" to="." method="_on_salirboton_pressed"]
+[node name="TextureRect2" type="TextureRect" parent="."]
+light_mask = 512
+visibility_layer = 512
+z_index = -14
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("10_ffljh")
+expand_mode = 3
+
+[connection signal="pressed" from="Opciones/Jugar-boton" to="." method="_on_jugarboton_pressed"]
+[connection signal="pressed" from="Opciones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
+[connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
+[connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_salirboton_pressed"]

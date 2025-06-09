@@ -1,7 +1,9 @@
 extends Node2D
-var acc = ""
+var acc = false
 var num_jugadores:int = 0
 var nombres_jugadores = []
+var nombresPuestos= 0
+var setNombres_jugadores=[false, false, false,false]
 var config = ConfigFile.new()
 const SETTINGS_FILE_PATH="user://settings.ini"
 var minijuegos = ["res://MINI1/Scenes/escenario-MINI1.tscn","res://MINI2/Scenes/MINI2.tscn","res://MINI3/Scenes/escenario-MINI3.tscn"]
