@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://x2fs7253ifji"]
+[gd_scene load_steps=22 format=3 uid="uid://x2fs7253ifji"]
 
 [ext_resource type="Script" uid="uid://sydi7ft0g0k3" path="res://Inicio/Scripts/scj.gd" id="1_4hqg2"]
 [ext_resource type="Shader" uid="uid://couu76j0ckis6" path="res://Inicio/intro.gdshader" id="2_eb7bp"]
@@ -16,6 +16,7 @@
 [ext_resource type="StyleBox" uid="uid://cvbyvbtwaigie" path="res://Inicio/SCJ4jugadoresHover.tres" id="13_ffef2"]
 [ext_resource type="StyleBox" uid="uid://cfnb7qc7hnjqe" path="res://Inicio/SCJ4jugadoresPressedtres.tres" id="14_oglkk"]
 [ext_resource type="StyleBox" uid="uid://bvi3fn7uoj0c6" path="res://Inicio/SCJ4jugadoresNormal.tres" id="15_8f83i"]
+[ext_resource type="FontFile" uid="uid://c02jnbv0ks7j" path="res://Inicio/Bugfast.otf" id="16_ffef2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ylbko"]
 shader = ExtResource("2_eb7bp")
@@ -48,50 +49,12 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kpcbp"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajlxt"]
-bg_color = Color(0, 0.305882, 0.203922, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wj063"]
-bg_color = Color(0, 0.141176, 0.0941176, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u206l"]
-bg_color = Color(0, 0.388235, 0.258824, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6vx8u"]
-bg_color = Color(0, 0.223529, 0.14902, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obelw"]
-bg_color = Color(0, 0.470588, 0.313726, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-shadow_size = 5
-shadow_offset = Vector2(5, 5)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oglkk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="SCJ" type="Control"]
 layout_mode = 3
@@ -202,12 +165,16 @@ theme_override_styles/separator = SubResource("StyleBoxTexture_kpcbp")
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxFlat_ajlxt")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_wj063")
-theme_override_styles/hover = SubResource("StyleBoxFlat_u206l")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6vx8u")
-theme_override_styles/normal = SubResource("StyleBoxFlat_obelw")
+theme_override_colors/font_disabled_color = Color(0.870324, 0.403282, 0.237275, 1)
+theme_override_colors/font_color = Color(0.448734, 0.582967, 0.661296, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("16_ffef2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxFlat_oglkk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_oglkk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oglkk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oglkk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_oglkk")
 disabled = true
 text = "Continuar"
 

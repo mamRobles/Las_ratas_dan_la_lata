@@ -66,13 +66,14 @@ func setNombresJugadores() -> void:
 func _name_entered(nombre: String, indice: int) -> void:
 	if nombre.length() > MAX_LONGITUD_NOMBRES:
 		nombre = nombre.substr(0, MAX_LONGITUD_NOMBRES-3) + "..."
-	if INICIO.nombres_jugadores.is_empty():
+	if INICIO.nombres_jugadores.is_empty() or INICIO.nombres_jugadores.size()<INICIO.num_jugadores:
 		for i in INICIO.num_jugadores:
 			INICIO.nombres_jugadores.append("")
 	INICIO.nombres_jugadores.set(indice, nombre)
 	if !INICIO.setNombres_jugadores[indice]:
 		INICIO.setNombres_jugadores[indice] =true
 		INICIO.nombresPuestos+=1
+		
 	if INICIO.nombresPuestos == INICIO.num_jugadores:
 		get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/Button").disabled = false
 
