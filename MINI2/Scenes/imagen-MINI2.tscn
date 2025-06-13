@@ -1,24 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://daf7dutp5qfb3"]
+[gd_scene load_steps=19 format=3 uid="uid://daf7dutp5qfb3"]
 
 [ext_resource type="Script" uid="uid://b7m4dg450sdol" path="res://MINI2/Scripts/imagen_mini_2.gd" id="1_fqoey"]
 [ext_resource type="Texture2D" uid="uid://0yyl767ixhqo" path="res://MINI2/Sprites/MINI2-cine1.png" id="1_wdfsv"]
 [ext_resource type="Texture2D" uid="uid://dbtfo0ab1ibki" path="res://MINI2/Sprites/MINI2-cine2.png" id="2_fqoey"]
-[ext_resource type="Texture2D" uid="uid://dbx3kl1eyl45w" path="res://MINI2/Sprites/atico.png" id="2_ftrew"]
-[ext_resource type="Texture2D" uid="uid://coc2e3lh7i248" path="res://MINI2/Sprites/atico_abierto.png" id="3_13aeu"]
 [ext_resource type="Texture2D" uid="uid://1s1phtw4imyg" path="res://MINI2/Sprites/MINI2-cine3.png" id="3_u4vdm"]
+[ext_resource type="Texture2D" uid="uid://cq2voysixsevv" path="res://MINI2/Sprites/escuela.png" id="3_vf4w7"]
+[ext_resource type="Texture2D" uid="uid://c837qvbo414dk" path="res://MINI2/Sprites/escuelano.png" id="4_eprnv"]
+[ext_resource type="Texture2D" uid="uid://rw8tc3usl77s" path="res://MINI2/Sprites/escuelasi.png" id="5_js3wd"]
 [ext_resource type="Texture2D" uid="uid://bk4asrcmihw4a" path="res://MINI2/Sprites/nosfegatu.png" id="5_u4vdm"]
-[ext_resource type="Texture2D" uid="uid://j62wgmbhdth4" path="res://MINI2/Sprites/puerta.png" id="5_up620"]
-[ext_resource type="Texture2D" uid="uid://b5o4jcsv0c5bc" path="res://MINI2/Sprites/puerta_abierta.png" id="6_vaxtw"]
-[ext_resource type="Texture2D" uid="uid://d1a8pxkyngckp" path="res://MINI2/Sprites/ventana.png" id="7_ypsy3"]
-[ext_resource type="Texture2D" uid="uid://diip8dbsp5hsw" path="res://MINI2/Sprites/ventana_abierta.png" id="8_a0q3l"]
-[ext_resource type="Texture2D" uid="uid://24mjtxg0om41" path="res://MINI2/Sprites/ataud.png" id="9_vf4w7"]
-[ext_resource type="Texture2D" uid="uid://um8l7blypblu" path="res://MINI2/Sprites/ataud_abierto.png" id="10_eprnv"]
+[ext_resource type="Texture2D" uid="uid://dqubpm2657vj1" path="res://MINI2/Sprites/cama.png" id="9_js3wd"]
+[ext_resource type="Texture2D" uid="uid://vfonkkrawxnv" path="res://MINI2/Sprites/bañera.png" id="10_13aeu"]
+[ext_resource type="Texture2D" uid="uid://dnpju8x0sr1q2" path="res://MINI2/Sprites/camano.png" id="10_acu3x"]
+[ext_resource type="Texture2D" uid="uid://fdrfc5shv7xx" path="res://MINI2/Sprites/camasi.png" id="11_mlhoe"]
+[ext_resource type="Texture2D" uid="uid://d2rhj6jko68l8" path="res://MINI2/Sprites/bañerano.png" id="11_vf4w7"]
+[ext_resource type="Texture2D" uid="uid://bfihphkaaixn8" path="res://MINI2/Sprites/bañerasi.png" id="12_eprnv"]
+[ext_resource type="Texture2D" uid="uid://callq3nbmnbpo" path="res://MINI2/Sprites/calle.png" id="15_1avg1"]
+[ext_resource type="Texture2D" uid="uid://d0s7he1oi7p8k" path="res://MINI2/Sprites/calleno.png" id="16_0h7w1"]
+[ext_resource type="Texture2D" uid="uid://b6dislabn406l" path="res://MINI2/Sprites/callesi.png" id="17_17o1h"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l8dvp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ftrew")
+"texture": ExtResource("3_vf4w7")
 }],
 "loop": true,
 "name": &"atico",
@@ -26,7 +30,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_13aeu")
+"texture": ExtResource("4_eprnv")
 }],
 "loop": true,
 "name": &"atico_no",
@@ -34,7 +38,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_13aeu")
+"texture": ExtResource("5_js3wd")
 }],
 "loop": true,
 "name": &"atico_si",
@@ -56,7 +60,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_up620")
+"texture": ExtResource("9_js3wd")
 }],
 "loop": true,
 "name": &"puerta",
@@ -64,7 +68,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_vaxtw")
+"texture": ExtResource("10_acu3x")
 }],
 "loop": true,
 "name": &"puerta_no",
@@ -72,7 +76,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_vaxtw")
+"texture": ExtResource("11_mlhoe")
 }],
 "loop": true,
 "name": &"puerta_si",
@@ -80,7 +84,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_vf4w7")
+"texture": ExtResource("10_13aeu")
 }],
 "loop": true,
 "name": &"tumba",
@@ -88,7 +92,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_eprnv")
+"texture": ExtResource("11_vf4w7")
 }],
 "loop": true,
 "name": &"tumba_no",
@@ -96,7 +100,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_eprnv")
+"texture": ExtResource("12_eprnv")
 }],
 "loop": true,
 "name": &"tumba_si",
@@ -104,7 +108,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_ypsy3")
+"texture": ExtResource("15_1avg1")
 }],
 "loop": true,
 "name": &"ventana",
@@ -112,7 +116,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_a0q3l")
+"texture": ExtResource("16_0h7w1")
 }],
 "loop": true,
 "name": &"ventana_no",
@@ -120,7 +124,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_a0q3l")
+"texture": ExtResource("17_17o1h")
 }],
 "loop": true,
 "name": &"ventana_si",
@@ -146,6 +150,6 @@ centered = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l8dvp")
-frame_progress = 0.177066
+animation = &"ventana_no"
 speed_scale = 0.2
 centered = false
