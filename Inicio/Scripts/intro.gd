@@ -45,5 +45,6 @@ func _ready():
 
 func _on_jugar_pressed() -> void:
 	#get_tree().change_scene_to_file("res://MINI1/Scenes/escenario-MINI1.tscn")
+	MusicPlayer.cambiarMusica("minijuegos")
 	get_tree().change_scene_to_file(INICIO.minijuegos.pop_front())
 	#get_tree().change_scene_to_file("res://MINI3/Scenes/escenario-MINI3.tscn")

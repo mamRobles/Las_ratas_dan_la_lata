@@ -81,4 +81,5 @@ func _on_continuar_pressed() -> void:
 	if !INICIO.minijuegos.is_empty():
 		get_tree().change_scene_to_file(INICIO.minijuegos.pop_front())
 	else:
+		MusicPlayer.cambiarMusica("victoria")
 		get_tree().change_scene_to_file("res://Final/Scenes/final.tscn")

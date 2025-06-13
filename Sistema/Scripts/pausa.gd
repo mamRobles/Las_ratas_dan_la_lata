@@ -34,5 +34,6 @@ func _on_volver_juego_pressed() -> void:
 
 func _on_menu_principal_pressed() -> void:
 	get_tree().paused=false
+	MusicPlayer.cambiarMusica("mdi")
 	get_tree().change_scene_to_file("res://Inicio/Scenes/MDI.tscn")
 	pass # Replace with function body.

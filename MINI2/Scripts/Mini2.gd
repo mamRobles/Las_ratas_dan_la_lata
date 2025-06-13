@@ -41,8 +41,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if !ha_salido:
-		if($"Imagen-mini2".sin_evento):
-			$"Imagen-mini2".sin_evento=false
+		if($"ParallaxBackground/Imagen-mini2".sin_evento):
+			$"ParallaxBackground/Imagen-mini2".sin_evento=false
 			#random entre 3 y 6
 			var tiempo:int =(randi()%4)+4
 			await get_tree().create_timer(tiempo).timeout
