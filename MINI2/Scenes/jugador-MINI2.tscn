@@ -45,6 +45,6 @@ animations = [{
 script = ExtResource("1_sqd4r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -171)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_ug73g")
-animation = &"asustado"

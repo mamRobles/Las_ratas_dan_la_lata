@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qxlkfla77k5n"]
+[gd_scene load_steps=6 format=3 uid="uid://qxlkfla77k5n"]
 
 [ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="1_rpd07"]
 [ext_resource type="Script" uid="uid://b0aua4n2jjgm6" path="res://MINI2/Scripts/Mini2.gd" id="2_heduh"]
 [ext_resource type="Texture2D" uid="uid://dmsb8ith0xrlx" path="res://MINI2/Sprites/MINI2-fondo.png" id="2_nr5u8"]
 [ext_resource type="PackedScene" uid="uid://daf7dutp5qfb3" path="res://MINI2/Scenes/imagen-MINI2.tscn" id="3_heduh"]
+[ext_resource type="Texture2D" uid="uid://dxuvq4h3qswjs" path="res://MINI2/Sprites/coches.png" id="5_p8spq"]
 
 [node name="Mini2" type="Node"]
 
@@ -14,46 +15,64 @@ mouse_filter = 1
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("2_heduh")
 
-[node name="fondo" type="Sprite2D" parent="Node2D"]
-light_mask = 512
-visibility_layer = 512
-z_index = -16
-position = Vector2(-26, -2)
-scale = Vector2(0.48, 0.48)
-texture = ExtResource("2_nr5u8")
-centered = false
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Node2D"]
 
-[node name="Imagen-mini2" parent="Node2D" instance=ExtResource("3_heduh")]
+[node name="TextureRect" type="TextureRect" parent="Node2D/ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nr5u8")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Imagen-mini2" parent="Node2D/ParallaxBackground" instance=ExtResource("3_heduh")]
 show_behind_parent = true
 light_mask = 512
 visibility_layer = 512
-offset_left = 285.0
-offset_top = 100.0
-offset_right = 885.0
-offset_bottom = 450.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -276.0
+offset_top = 10.0
+offset_right = 324.0
+offset_bottom = 360.0
+grow_horizontal = 2
+scale = Vector2(0.9, 0.9)
 mouse_filter = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Node2D/ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_p8spq")
+expand_mode = 5
+stretch_mode = 4
 
 [node name="hora_de_la_bestia" type="Timer" parent="Node2D"]
 wait_time = 50.0
 autostart = true
 
 [node name="jugador1_pos" type="Marker2D" parent="Node2D"]
-position = Vector2(250, 600)
+position = Vector2(139, 552)
 
 [node name="jugador2_pos" type="Marker2D" parent="Node2D"]
-position = Vector2(500, 600)
+position = Vector2(288, 556)
 
 [node name="jugador3_pos" type="Marker2D" parent="Node2D"]
-position = Vector2(750, 600)
+position = Vector2(896, 558)
 
 [node name="jugador4_pos" type="Marker2D" parent="Node2D"]
-position = Vector2(1000, 600)
+position = Vector2(1032, 557)
 
 [node name="mostrar_ganadores" type="Timer" parent="Node2D"]
 wait_time = 3.0
 one_shot = true
 
-[connection signal="hora_del_evento" from="Node2D" to="Node2D/Imagen-mini2" method="_on_node_2d_hora_del_evento"]
-[connection signal="nosfegatu_aparece" from="Node2D/Imagen-mini2" to="Node2D" method="_on_imagenmini_2_nosfegatu_aparece"]
-[connection signal="timeout" from="Node2D/hora_de_la_bestia" to="Node2D/Imagen-mini2" method="_on_hora_de_la_bestia_timeout"]
+[connection signal="hora_del_evento" from="Node2D" to="Node2D/ParallaxBackground/Imagen-mini2" method="_on_node_2d_hora_del_evento"]
+[connection signal="nosfegatu_aparece" from="Node2D/ParallaxBackground/Imagen-mini2" to="Node2D" method="_on_imagenmini_2_nosfegatu_aparece"]
+[connection signal="timeout" from="Node2D/hora_de_la_bestia" to="Node2D/ParallaxBackground/Imagen-mini2" method="_on_hora_de_la_bestia_timeout"]
 [connection signal="timeout" from="Node2D/mostrar_ganadores" to="Node2D" method="_on_mostrar_ganadores_timeout"]
