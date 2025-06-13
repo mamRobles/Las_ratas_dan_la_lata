@@ -276,7 +276,7 @@ position = Vector2(67.8, 7.20001)
 rotation = -0.23911
 sprite_frames = SubResource("SpriteFrames_dtt5y")
 autoplay = "default"
-frame_progress = 0.547835
+frame_progress = 0.409576
 speed_scale = 4.0
 
 [connection signal="pressed" from="PanelContainer2/PanelContainer/MarginContainer/HBoxContainer/Volver a Jugar" to="." method="_on_volver_a_jugar_pressed"]

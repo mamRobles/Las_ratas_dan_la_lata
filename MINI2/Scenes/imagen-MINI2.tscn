@@ -131,18 +131,21 @@ animations = [{
 clip_contents = true
 custom_minimum_size = Vector2(600, 350)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 600.0
-offset_bottom = 350.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_fqoey")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_l8dvp")
-animation = &"tumba"
-speed_scale = 0.2
-centered = false
 
 [node name="nosfegatu" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 texture = ExtResource("5_u4vdm")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_l8dvp")
+frame_progress = 0.177066
+speed_scale = 0.2
 centered = false
