@@ -30,3 +30,7 @@ func _on_opciones_boton_pressed() -> void:
 func _on_salirboton_pressed() -> void:
 	#get_tree().quit(0)
 	INICIO.salir_juego(0)
+
+
+func _on_texture_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Inicio/Scenes/control.tscn")

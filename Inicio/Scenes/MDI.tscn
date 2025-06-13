@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh62hwqkxcqix"]
+[gd_scene load_steps=13 format=3 uid="uid://dh62hwqkxcqix"]
 
 [ext_resource type="Script" uid="uid://676x0y0ctvcg" path="res://Inicio/Scripts/mdi.gd" id="1_r7mvp"]
 [ext_resource type="Texture2D" uid="uid://bdvt21rmfhiii" path="res://Sistema/Sprites/mdiFondo.png" id="2_wedwj"]
@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bit5qwtlih0gt" path="res://Sistema/Sprites/opcionesES.png" id="6_ffljh"]
 [ext_resource type="Texture2D" uid="uid://bqtjr47ukdpa2" path="res://Sistema/Sprites/salirjp.png" id="7_ffljh"]
 [ext_resource type="Texture2D" uid="uid://bnghvrv7lygq0" path="res://Sistema/Sprites/salires.png" id="8_w3f5f"]
+[ext_resource type="Texture2D" uid="uid://bsos0nsc8e0ay" path="res://Inicio/Sprites/botoncontroleshover.png" id="10_7towv"]
 [ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="10_ffljh"]
+[ext_resource type="Texture2D" uid="uid://c8did6aymj7gf" path="res://Inicio/Sprites/botoncontrolespresed.png" id="11_hgtl7"]
+[ext_resource type="Texture2D" uid="uid://bhl6vfg2o0b8e" path="res://Inicio/Sprites/botoncontroles.png" id="12_xvod1"]
 
 [node name="MDI" type="MarginContainer"]
 anchors_preset = 15
@@ -21,15 +24,6 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 script = ExtResource("1_r7mvp")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -4
-custom_minimum_size = Vector2(1152, 648)
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("2_wedwj")
-expand_mode = 2
-stretch_mode = 5
 
 [node name="Opciones" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -70,16 +64,55 @@ texture_hover = ExtResource("8_w3f5f")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground"]
 light_mask = 512
 visibility_layer = 512
 z_index = -14
-layout_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("10_ffljh")
 expand_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
+z_index = -4
+custom_minimum_size = Vector2(1152, 648)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_wedwj")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="TextureButton" type="TextureButton" parent="ParallaxBackground2"]
+z_index = 3
+anchors_preset = -1
+anchor_top = 0.773
+anchor_bottom = 0.773
+offset_right = 500.0
+offset_bottom = 374.0
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("10_7towv")
+texture_pressed = ExtResource("11_hgtl7")
+texture_hover = ExtResource("12_xvod1")
+stretch_mode = 0
 
 [connection signal="pressed" from="Opciones/Jugar-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="Opciones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
 [connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_salirboton_pressed"]
+[connection signal="pressed" from="ParallaxBackground2/TextureButton" to="." method="_on_texture_button_pressed"]

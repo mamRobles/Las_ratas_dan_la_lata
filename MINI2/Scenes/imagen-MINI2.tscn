@@ -150,6 +150,6 @@ centered = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_l8dvp")
-animation = &"ventana_no"
+animation = &"ventana_si"
 speed_scale = 0.2
 centered = false
