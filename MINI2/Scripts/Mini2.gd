@@ -16,7 +16,7 @@ func add_player(indice):
 		#usamos la variable jugador pa no escribir jugadores veintemilveces
 	var jugador = jugadores[-1]
 	# modificar posición, estética (gorritos), inputs
-	jugador.position = posiciones.pop_back() # pposiciones de jugadores
+	jugador.position = posiciones.pop_front() # pposiciones de jugadores
 
 	#TODO: añadir gorritos y colores y esas cosas
 	jugador.id=indice
