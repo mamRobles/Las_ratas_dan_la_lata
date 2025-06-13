@@ -2,7 +2,7 @@ extends Control
 
 func _ready():
 	var contenedorV = get_node("PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2")
-	
+	$PanelContainer2/PanelContainer/MarginContainer/AnimatedSprite2D.material.set("shader_parameter/thickness",2)
 	#Atributo style de las etiquetas con los nombres
 	var style = StyleBoxFlat.new()
 	style.bg_color = Color8(0, 120, 80)  #Color de la caja
@@ -90,6 +90,7 @@ func _on_volver_a_jugar_pressed() -> void:
 	MINI3.puntos_MINI3 = [0, 0, 0, 0]
 	MINI3.empezar = false
 	MusicPlayer.cambiarMusica("mdi")
+	
 	get_tree().change_scene_to_file("res://Inicio/Scenes/MDI.tscn")
 
 
