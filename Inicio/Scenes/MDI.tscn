@@ -113,6 +113,6 @@ stretch_mode = 0
 
 [connection signal="pressed" from="Opciones/Jugar-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="Opciones/Opciones boton" to="." method="_on_opciones_boton_pressed"]
-[connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_salirboton_pressed"]
+[connection signal="pressed" from="Opciones/Salir-boton" to="." method="_on_jugarboton_pressed"]
 [connection signal="pressed" from="ParallaxBackground2/TextureButton" to="." method="_on_texture_button_pressed"]
