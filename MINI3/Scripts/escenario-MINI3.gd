@@ -87,3 +87,8 @@ func _on_mostrar_ganadores_timeout() -> void:
 	for i in range(INICIO.num_jugadores):
 		MINI3.puntos_MINI3[i] = int(jugadores[i].puntos / 10)
 	get_tree().change_scene_to_file("res://MINI3/Scenes/ganadores-MINI3.tscn")
+
+
+func _on_area_borde_body_entered(body: Node2D) -> void:
+	if body.get_class() == "CharacterBody2D":
+		body.empuje_acumulado = Vector2.ZERO
