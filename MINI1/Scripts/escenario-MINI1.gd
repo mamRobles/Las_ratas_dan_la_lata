@@ -66,7 +66,7 @@ func add_player(indice):
 	jugador.arriba="ui_up{n}".format({"n":indice+1})
 	jugador.abajo="ui_down{n}".format({"n":indice+1})
 	
-	jugador.apply_scale(Vector2(4.0, 4.0))
+	#jugador.apply_scale(Vector2(4.0, 4.0))
 	add_child(jugador)
 	#jugador.cambiar_color(indice+1) no funciona
 	
