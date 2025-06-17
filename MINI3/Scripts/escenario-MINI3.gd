@@ -20,7 +20,7 @@ func add_player(indice):
 	jugador.GIRODERECHA = "ui_right{n}".format({"n":indice+1})
 	jugador.AVANZAR = "ui_up{n}".format({"n":indice+1})
 	jugador.RETROCEDER = "ui_down{n}".format({"n":indice+1})
-	jugador.apply_scale(Vector2(0.3, 0.3))
+	#jugador.apply_scale(Vector2(0.3, 0.3))
 	
 	if indice == 0:
 		$Label_jugador1.visible = true

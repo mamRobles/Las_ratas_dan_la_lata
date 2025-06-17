@@ -15,7 +15,8 @@ var nivel : int = 0
 var puntos : float = 0.0
 
 var empuje_acumulado : Vector2 = Vector2.ZERO
-
+func _ready() -> void:
+	$Sprite2D.material.set("shader_parameter/thickness",30)
 func _physics_process(delta: float) -> void:
 	
 	if MINI3.empezar:

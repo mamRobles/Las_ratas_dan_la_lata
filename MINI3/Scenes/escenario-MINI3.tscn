@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8yy6kjobhw2i"]
+[gd_scene load_steps=26 format=3 uid="uid://c8yy6kjobhw2i"]
 
 [ext_resource type="Script" uid="uid://bqn7fbjpn4eo1" path="res://MINI3/Scripts/escenario-MINI3.gd" id="1_8cx1r"]
 [ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="1_l4ceu"]
@@ -39,7 +39,7 @@ region = Rect2(1024, 0, 1024, 812)
 atlas = ExtResource("3_l4ceu")
 region = Rect2(2048, 0, 1024, 812)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s508v"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4ceu"]
 atlas = ExtResource("3_l4ceu")
 region = Rect2(3072, 0, 1024, 812)
 
@@ -56,7 +56,36 @@ animations = [{
 "texture": SubResource("AtlasTexture_o5wc1")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_l4ceu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s508v"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(0, 0, 1024, 812)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4wd5"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(1024, 0, 1024, 812)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1pji"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(2048, 0, 1024, 812)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrj3b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s508v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4wd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1pji")
 }],
 "loop": true,
 "name": &"default",
@@ -190,8 +219,8 @@ speed_scale = 0.25
 visible = false
 z_index = 20
 position = Vector2(576, 320)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_l4ceu")
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_yrj3b")
 speed_scale = 0.25
 
 [node name="AreaBorde" type="Area2D" parent="Escenario-mini3"]
