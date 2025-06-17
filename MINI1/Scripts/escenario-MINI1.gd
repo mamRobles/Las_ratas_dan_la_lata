@@ -128,10 +128,11 @@ func _process(_delta):
 			#Mover la cámara, el fondo, el jugador e incrementar el offset
 			if !gato_activo:
 				$Camera2D.position.x += SPEED
-				$Fondo.position.x += SPEED
+				
 				$GatoAviso.position.x += SPEED
 				$GatoCazando.position.x += SPEED
 				$"../Pausa".position.x+=SPEED
+			
 				offset += SPEED
 				$barrerainterdimensiona/CollisionShape2D.position.x+=SPEED
 			
@@ -139,7 +140,8 @@ func _process(_delta):
 			if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
 				$suelo.position.x += screen_size.x
 				$"CaídaAlVacío".position.x+=screen_size.x
-				
+			
+			
 			#Si el escondite desaparece de plano, lo elimina
 			for esc in escondites:
 				if esc.position.x < ($Camera2D.position.x - screen_size.x):

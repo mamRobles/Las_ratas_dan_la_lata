@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://buo22v4ingqqm" path="res://MINI1/Scripts/escenario-MINI1.gd" id="1_5id6t"]
 [ext_resource type="PackedScene" uid="uid://clyotws51in8w" path="res://MINI1/Scenes/suelo-MINI1.tscn" id="2_5id6t"]
-[ext_resource type="Texture2D" uid="uid://dsmua3x7fwvtr" path="res://MINI1/Sprites/fondo-MINI1.jpg" id="2_i2fuo"]
+[ext_resource type="Texture2D" uid="uid://b32tiwuhjav3k" path="res://MINI1/Sprites/fondo-MINI1.png" id="3_nvt1d"]
 [ext_resource type="Texture2D" uid="uid://ugqkt8toe6ir" path="res://MINI1/Sprites/gato-MINI1.png" id="5_2b5kb"]
 [ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="5_nvt1d"]
 [ext_resource type="Texture2D" uid="uid://cxrygi01i258d" path="res://MINI1/Sprites/321go-MINI1.png" id="6_nvt1d"]
@@ -122,12 +122,19 @@ z_index = 20
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("1_5id6t")
 
-[node name="Fondo" type="Sprite2D" parent="Node2D"]
-position = Vector2(576, 324)
-scale = Vector2(0.886154, 0.747405)
-texture = ExtResource("2_i2fuo")
+[node name="ParallaxLayer" type="Parallax2D" parent="Node2D"]
+z_index = -10
+scroll_scale = Vector2(0.3, 1)
+repeat_times = 4
+
+[node name="Fondo" type="Sprite2D" parent="Node2D/ParallaxLayer"]
+scale = Vector2(1.186, 1)
+texture = ExtResource("3_nvt1d")
+centered = false
 
 [node name="suelo" parent="Node2D" instance=ExtResource("2_5id6t")]
+position = Vector2(-3, -63)
+scale = Vector2(1.1, 1.1)
 
 [node name="Camera2D" type="Camera2D" parent="Node2D"]
 position = Vector2(576, 324)
@@ -247,8 +254,8 @@ position = Vector2(1211, 273)
 shape = SubResource("RectangleShape2D_nvt1d")
 
 [connection signal="timeout" from="Node2D/Inicio" to="Node2D" method="_on_inicio_timeout"]
-[connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_fin_timeout"]
+[connection signal="timeout" from="Node2D/Fin" to="Node2D" method="_on_timer_timeout"]
 [connection signal="timeout" from="Node2D/InicioGato" to="Node2D" method="_on_inicio_gato_timeout"]
 [connection signal="timeout" from="Node2D/InicioGatoCazando" to="Node2D" method="_on_inicio_gato_cazando_timeout"]
 [connection signal="timeout" from="Node2D/FinGato" to="Node2D" method="_on_fin_gato_timeout"]
