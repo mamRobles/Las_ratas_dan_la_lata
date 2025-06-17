@@ -1,19 +1,19 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8yy6kjobhw2i"]
+[gd_scene load_steps=26 format=3 uid="uid://c8yy6kjobhw2i"]
 
-[ext_resource type="Texture2D" uid="uid://bspft57ly7yy4" path="res://MINI1/Sprites/suelo-MINI1.png" id="1_3afbo"]
 [ext_resource type="Script" uid="uid://bqn7fbjpn4eo1" path="res://MINI3/Scripts/escenario-MINI3.gd" id="1_8cx1r"]
 [ext_resource type="PackedScene" uid="uid://dng7iryyfov06" path="res://Sistema/Scenes/Pausa.tscn" id="1_l4ceu"]
 [ext_resource type="Texture2D" uid="uid://bjt08kj2hlxn" path="res://MINI3/Sprites/diana-MINI3.png" id="2_8cx1r"]
-[ext_resource type="Texture2D" uid="uid://cxrygi01i258d" path="res://MINI1/Sprites/321go-MINI1.png" id="4_y2mtw"]
+[ext_resource type="Texture2D" uid="uid://cw5r7oalqlq55" path="res://MINI1/Sprites/321go.png" id="3_l4ceu"]
+[ext_resource type="Texture2D" uid="uid://bmr35ntu3trin" path="res://MINI3/Sprites/fondo-MINI3.png" id="4_l4ceu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8cx1r"]
-radius = 240.0
+radius = 280.578
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y2mtw"]
-radius = 112.285
+radius = 198.003
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l4ceu"]
-radius = 19.2354
+radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8cx1r"]
 size = Vector2(1200, 24)
@@ -27,36 +27,65 @@ size = Vector2(1200, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mrnno"]
 size = Vector2(24, 696)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b7t66"]
-atlas = ExtResource("4_y2mtw")
-region = Rect2(0, 0, 50, 68)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrnno"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(0, 0, 1024, 812)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ipw43"]
-atlas = ExtResource("4_y2mtw")
-region = Rect2(53, 0, 50, 68)
+[sub_resource type="AtlasTexture" id="AtlasTexture_10hrd"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(1024, 0, 1024, 812)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xrxnw"]
-atlas = ExtResource("4_y2mtw")
-region = Rect2(106, 0, 50, 68)
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5wc1"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(2048, 0, 1024, 812)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xw5w2"]
-atlas = ExtResource("4_y2mtw")
-region = Rect2(159, 0, 50, 68)
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4ceu"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(3072, 0, 1024, 812)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l4ceu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b7t66")
+"texture": SubResource("AtlasTexture_mrnno")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ipw43")
+"texture": SubResource("AtlasTexture_10hrd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xrxnw")
+"texture": SubResource("AtlasTexture_o5wc1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xw5w2")
+"texture": SubResource("AtlasTexture_l4ceu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s508v"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(0, 0, 1024, 812)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4wd5"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(1024, 0, 1024, 812)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1pji"]
+atlas = ExtResource("3_l4ceu")
+region = Rect2(2048, 0, 1024, 812)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yrj3b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s508v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4wd5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1pji")
 }],
 "loop": true,
 "name": &"default",
@@ -82,16 +111,6 @@ z_index = 15
 
 [node name="Escenario-mini3" type="Node2D" parent="."]
 script = ExtResource("1_8cx1r")
-
-[node name="Fondo" type="Sprite2D" parent="Escenario-mini3"]
-position = Vector2(576, 324)
-scale = Vector2(1.40488, 2.53125)
-texture = ExtResource("1_3afbo")
-
-[node name="Diana" type="Sprite2D" parent="Escenario-mini3/Fondo"]
-position = Vector2(-8.54166, 3.51027)
-scale = Vector2(1.25172, 0.696871)
-texture = ExtResource("2_8cx1r")
 
 [node name="jugador1_pos" type="Marker2D" parent="Escenario-mini3"]
 position = Vector2(192, 192)
@@ -137,7 +156,7 @@ offset_bottom = 575.0
 position = Vector2(560, 320)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario-mini3/Puntos1"]
-position = Vector2(-3, 3)
+position = Vector2(9, -2)
 shape = SubResource("CircleShape2D_8cx1r")
 debug_color = Color(0, 0.564706, 0.0352941, 0.329412)
 
@@ -145,7 +164,7 @@ debug_color = Color(0, 0.564706, 0.0352941, 0.329412)
 position = Vector2(560, 320)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario-mini3/Puntos2"]
-position = Vector2(-4, 4)
+position = Vector2(10, -2)
 shape = SubResource("CircleShape2D_y2mtw")
 debug_color = Color(0.999026, 0.739675, 1.42467e-05, 0.42)
 
@@ -153,7 +172,7 @@ debug_color = Color(0.999026, 0.739675, 1.42467e-05, 0.42)
 position = Vector2(560, 320)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Escenario-mini3/Puntos3"]
-position = Vector2(-4, 3)
+position = Vector2(9, -2)
 shape = SubResource("CircleShape2D_l4ceu")
 debug_color = Color(0.994593, 0, 0.219567, 0.42)
 
@@ -192,7 +211,7 @@ one_shot = true
 [node name="CuentaAtrasInicio" type="AnimatedSprite2D" parent="Escenario-mini3"]
 z_index = 20
 position = Vector2(576, 320)
-scale = Vector2(2, 2)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_l4ceu")
 speed_scale = 0.25
 
@@ -200,8 +219,8 @@ speed_scale = 0.25
 visible = false
 z_index = 20
 position = Vector2(576, 320)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_l4ceu")
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_yrj3b")
 speed_scale = 0.25
 
 [node name="AreaBorde" type="Area2D" parent="Escenario-mini3"]
@@ -225,6 +244,28 @@ debug_color = Color(0.817468, 0.0946961, 0.942841, 0.42)
 position = Vector2(1152, 324)
 shape = SubResource("RectangleShape2D_k4wd5")
 debug_color = Color(0.845342, 0.0010042, 0.910923, 0.42)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Escenario-mini3"]
+
+[node name="fondo" type="TextureRect" parent="Escenario-mini3/ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_l4ceu")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="diana" type="TextureRect" parent="Escenario-mini3/ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8cx1r")
+expand_mode = 5
+stretch_mode = 4
 
 [connection signal="body_entered" from="Escenario-mini3/Puntos1" to="Escenario-mini3" method="_on_puntos_body_entered"]
 [connection signal="body_exited" from="Escenario-mini3/Puntos1" to="Escenario-mini3" method="_on_puntos_body_exited"]
