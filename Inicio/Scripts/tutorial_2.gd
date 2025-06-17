@@ -10,12 +10,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Inicio/Scenes/MDI.tscn")
 	pass # Replace with function body.
 
 
+func _on_flechaizq_pressed() -> void:
+	get_tree().change_scene_to_file("res://Inicio/Scenes/tutorial.tscn")
+	pass # Replace with function body.
+
+
 func _on_flechaderecha_pressed() -> void:
-	get_tree().change_scene_to_file("res://Inicio/Scenes/tutorial2.tscn")
+	get_tree().change_scene_to_file("res://Inicio/Scenes/tutorial3.tscn")
 	pass # Replace with function body.

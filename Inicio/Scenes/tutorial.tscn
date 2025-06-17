@@ -1,0 +1,172 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwxac24htnbp4"]
+
+[ext_resource type="Script" uid="uid://b3p7q31a1idjq" path="res://Inicio/Scripts/tutorial.gd" id="1_uyaiv"]
+[ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="2_0dobe"]
+[ext_resource type="Shader" uid="uid://couu76j0ckis6" path="res://Inicio/intro.gdshader" id="3_3jk02"]
+[ext_resource type="FontFile" uid="uid://briqh76e868qq" path="res://Sistema/ZCOOLKuaiLe-Regular.ttf" id="4_hv1r6"]
+[ext_resource type="Texture2D" uid="uid://c0j4krt5tmmbh" path="res://Sistema/Sprites/tutorial_MINI2.png" id="5_uyaiv"]
+[ext_resource type="FontFile" uid="uid://c02jnbv0ks7j" path="res://Inicio/Bugfast.otf" id="7_ud8sy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cd2p"]
+shader = ExtResource("3_3jk02")
+shader_parameter/effect_filling = 1.0
+shader_parameter/angle = 90.0
+shader_parameter/keep_saturation = 0.0
+shader_parameter/keep_luminance = 1.0
+shader_parameter/color_start = Color(1, 0.501961, 0, 1)
+shader_parameter/start_pos = 0.0
+shader_parameter/color_mid = Color(0.556863, 0.862745, 0.72549, 1)
+shader_parameter/mid_pos = 0.5
+shader_parameter/color_end = Color(0, 0.713726, 0.996078, 1)
+shader_parameter/end_pos = 1.0
+shader_parameter/midpos_enabled = true
+shader_parameter/range_start = 0.0
+shader_parameter/range_end = 1.0
+shader_parameter/range_softedge = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45xob"]
+bg_color = Color(0.0392157, 0.329412, 0.415686, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35prl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uyaiv")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0dobe")
+expand_mode = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_8cd2p")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+theme_override_styles/panel = SubResource("StyleBoxFlat_45xob")
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_45xob")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_hv1r6")
+theme_override_font_sizes/normal_font_size = 40
+text = "Tutorial"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_uyaiv")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Estáis todos viendo una peli de Freddy Gatueger. No queréis asustaros, así que atentos cuando salga una escena miedosa para apartar la mirada (tecla abajo).
+Si la pulsáis cuando no esté Freddy os váis a perder la peli, así que estaréis un rato confundidos.
+¡Si Freddy sale y sois demasiado lentos, os asustaréis y perderéis!"
+autowrap_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.448734, 0.582967, 0.661296, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_ud8sy")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_35prl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_35prl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_35prl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_35prl")
+text = "Volver"
+
+[node name="flechaderecha" type="Button" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.448734, 0.582967, 0.661296, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_ud8sy")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_35prl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_35prl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_35prl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_35prl")
+text = "->"
+
+[connection signal="pressed" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/flechaderecha" to="." method="_on_flechaderecha_pressed"]

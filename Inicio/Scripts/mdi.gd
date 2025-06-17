@@ -34,3 +34,8 @@ func _on_salirboton_pressed() -> void:
 
 func _on_texture_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Inicio/Scenes/control.tscn")
+
+
+func _on_tutorial_boton_pressed() -> void:
+	get_tree().change_scene_to_file("res://Inicio/Scenes/tutorial.tscn")
+	pass # Replace with function body.
