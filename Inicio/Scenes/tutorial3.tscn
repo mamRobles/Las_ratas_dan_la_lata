@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b0xt5r55yac1u" path="res://Sistema/Sprites/fondoUI.png" id="2_a7u2f"]
 [ext_resource type="Shader" uid="uid://couu76j0ckis6" path="res://Inicio/intro.gdshader" id="3_rmhwi"]
 [ext_resource type="FontFile" uid="uid://briqh76e868qq" path="res://Sistema/ZCOOLKuaiLe-Regular.ttf" id="4_2wfgl"]
-[ext_resource type="Texture2D" uid="uid://c0j4krt5tmmbh" path="res://Sistema/Sprites/tutorial_MINI2.png" id="5_eyn1g"]
+[ext_resource type="Texture2D" uid="uid://bpr522oxkn6od" path="res://Sistema/Sprites/tutorial_MINI3.png" id="5_q0nmc"]
 [ext_resource type="FontFile" uid="uid://c02jnbv0ks7j" path="res://Inicio/Bugfast.otf" id="6_5cb5m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8cd2p"]
@@ -111,7 +111,7 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("5_eyn1g")
+texture = ExtResource("5_q0nmc")
 expand_mode = 3
 stretch_mode = 4
 
@@ -127,7 +127,8 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "hacer futuro"
+text = "Luchad para estar el máximo tiempo posible en el centro de la diana. 
+Cuanto más cerca, más puntos, ¡empujaos para evitar que los demás ganen!"
 autowrap_mode = 2
 
 [node name="HSeparator2" type="HSeparator" parent="PanelContainer2/PanelContainer/MarginContainer/VBoxContainer"]
