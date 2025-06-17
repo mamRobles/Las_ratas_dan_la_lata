@@ -51,13 +51,13 @@ func add_containers() -> void:
 		if MINI2.asustados[i]:
 			nombre.add_theme_stylebox_override("normal", style_muerto)
 			#sprite.texture = load("res://MINI2/Sprites/ratoncine-asustado.png")
-			sprite.texture = load("res://MINI1/Sprites/rata_muerta-MINI1.png")
+			sprite.texture = load("res://MINI1/Sprites/ganadoresmuerto.png")
 			puntos_suma.text = "+0 pts"
 		else:
 			nombre.add_theme_stylebox_override("normal", style_vivo)
 			#BORRAR ESTO PA QUE SIRVE sprite.texture = load("res://MINI1/Sprites/rata_viva-MINI1.png")
 			#sprite.texture = load("res://MINI2/Sprites/ratoncine-cerrar.png")
-			sprite.texture = load("res://MINI1/Sprites/rata_viva-MINI1.png")
+			sprite.texture = load("res://MINI1/Sprites/vivoganadores.png")
 			puntos_suma.text = "+10 pts"
 			INICIO.puntos[i] += 10
 		
