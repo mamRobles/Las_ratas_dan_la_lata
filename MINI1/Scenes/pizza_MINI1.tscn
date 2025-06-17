@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cph3qyi7whmw0"]
+
+[ext_resource type="Texture2D" uid="uid://dc3fycalvfcue" path="res://MINI1/Sprites/pizza-MINI1.png" id="1_sawtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpw0h"]
+size = Vector2(220.667, 86)
+
+[node name="jarron" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -73)
+texture = ExtResource("1_sawtj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.50001, -66)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_vpw0h")

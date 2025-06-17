@@ -4,4 +4,11 @@
 
 [node name="Node2D" type="Sprite2D"]
 scale = Vector2(0.7, 0.7)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -304.286
+offset_top = -194.286
+offset_right = 110.714
+offset_bottom = -62.2857
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_jmyck")

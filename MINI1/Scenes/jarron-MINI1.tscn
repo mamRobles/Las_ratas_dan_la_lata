@@ -8,10 +8,10 @@ size = Vector2(120, 171)
 [node name="jarron" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.99999, -3.99999)
+position = Vector2(4, -126)
 scale = Vector2(0.825112, 0.818713)
 texture = ExtResource("1_j43ya")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 31.5)
+position = Vector2(2, -88)
 shape = SubResource("RectangleShape2D_odgnk")

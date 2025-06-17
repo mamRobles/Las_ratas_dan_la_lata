@@ -6,13 +6,12 @@
 size = Vector2(106, 101)
 
 [node name="planta" type="Area2D"]
-position = Vector2(0, 87)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(3.64043e-06, -1.43647e-05)
+position = Vector2(2.71051e-20, -55)
 scale = Vector2(0.835341, 0.810127)
 texture = ExtResource("1_31mjs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -0.5)
+position = Vector2(1, -52)
 shape = SubResource("RectangleShape2D_nm8o6")

@@ -8,10 +8,10 @@ size = Vector2(335, 222)
 [node name="libros" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -55)
+position = Vector2(-2, -165)
 scale = Vector2(1.01939, 1.03349)
 texture = ExtResource("1_y6ums")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -2)
+position = Vector2(2, -114)
 shape = SubResource("RectangleShape2D_ow263")
