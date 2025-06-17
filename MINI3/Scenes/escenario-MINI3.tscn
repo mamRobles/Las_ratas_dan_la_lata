@@ -221,7 +221,7 @@ z_index = 20
 position = Vector2(576, 320)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_yrj3b")
-frame_progress = 0.150312
+frame_progress = 0.14363
 speed_scale = 0.25
 
 [node name="AreaBorde" type="Area2D" parent="Escenario-mini3"]
