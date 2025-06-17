@@ -14,7 +14,9 @@ var indices_aleatorios : Array
 var esc1_scene = preload("res://MINI1/Scenes/libros-MINI1.tscn")
 var esc2_scene = preload("res://MINI1/Scenes/planta-MINI1.tscn")
 var esc3_scene = preload("res://MINI1/Scenes/jarron-MINI1.tscn")
-var tipos_escondite := [esc1_scene, esc2_scene, esc3_scene]
+var esc4_scene = preload("res://MINI1/Scenes/tickets-MINI1.tscn")
+var esc5_scene = preload("res://MINI1/Scenes/pizza_MINI1.tscn")
+var tipos_escondite := [esc1_scene, esc2_scene, esc3_scene,esc4_scene,esc5_scene]
 var escondites : Array
 
 #Meta
@@ -64,7 +66,7 @@ func add_player(indice):
 	jugador.arriba="ui_up{n}".format({"n":indice+1})
 	jugador.abajo="ui_down{n}".format({"n":indice+1})
 	
-	jugador.apply_scale(Vector2(4.0, 4.0))
+	#jugador.apply_scale(Vector2(4.0, 4.0))
 	add_child(jugador)
 	#jugador.cambiar_color(indice+1) no funciona
 	
@@ -128,10 +130,11 @@ func _process(_delta):
 			#Mover la cámara, el fondo, el jugador e incrementar el offset
 			if !gato_activo:
 				$Camera2D.position.x += SPEED
-				$Fondo.position.x += SPEED
+				
 				$GatoAviso.position.x += SPEED
 				$GatoCazando.position.x += SPEED
 				$"../Pausa".position.x+=SPEED
+			
 				offset += SPEED
 				$barrerainterdimensiona/CollisionShape2D.position.x+=SPEED
 			
@@ -139,7 +142,8 @@ func _process(_delta):
 			if $Camera2D.position.x - $suelo.position.x > screen_size.x * 1.5:
 				$suelo.position.x += screen_size.x
 				$"CaídaAlVacío".position.x+=screen_size.x
-				
+			
+			
 			#Si el escondite desaparece de plano, lo elimina
 			for esc in escondites:
 				if esc.position.x < ($Camera2D.position.x - screen_size.x):
@@ -168,7 +172,7 @@ func generate_esc():
 		var esc_x : int = screen_size.x + offset + 200
 		#El escondite aparecerá a la altura de la pantalla menos la mitad de la altura del suelo 
 		#menos la mitad de la altura del escondite más 30 (para profundidad)
-		var esc_y : int =  pos1.y - (suelo_height/2)
+		var esc_y : int =  pos1.y 
 		
 		ultimo_escondite = esc		#Actualizar el último escondite
 		add_esc(esc, esc_x, esc_y)  #Añadir escondite
@@ -205,10 +209,9 @@ func salir_escondite(body):
 func generate_fin():
 	meta = meta_scene.instantiate()
 
-	var _meta_height = meta.texture.get_height()
-	var _meta_scale = meta.scale
+
 	var meta_x : int = 2 * screen_size.x + offset
-	var meta_y : int = pos1.y - (suelo_height / 2) 
+	var meta_y : int = pos1.y 
 	
 	meta.position = Vector2i(meta_x, meta_y)
 	add_child(meta)

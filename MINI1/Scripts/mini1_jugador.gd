@@ -24,7 +24,7 @@ func _ready() -> void:
 	_animated_sprite.play("parado_derecha")
 	areaColision.body_entered.connect(add_debuff)
 	if INICIO.acc:
-		$AnimatedSprite2D.material.set("shader_parameter/thickness",0.5)
+		$AnimatedSprite2D.material.set("shader_parameter/thickness",3)
 		 
 	
 func _physics_process(delta: float) -> void:
