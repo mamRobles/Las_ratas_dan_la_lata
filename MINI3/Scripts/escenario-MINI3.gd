@@ -45,7 +45,7 @@ func _ready():
 
 	for i in range(INICIO.num_jugadores):
 		add_player(i)
-	
+	MusicPlayer.cambiarMusica("mini3")
 	$CuentaAtrasInicio.play("default")
 
 func _process(delta: float) -> void:
@@ -86,6 +86,7 @@ func _on_fin_timeout() -> void:
 func _on_mostrar_ganadores_timeout() -> void:
 	for i in range(INICIO.num_jugadores):
 		MINI3.puntos_MINI3[i] = int(jugadores[i].puntos / 10)
+		MusicPlayer.cambiarMusica("minijuegos")
 	get_tree().change_scene_to_file("res://MINI3/Scenes/ganadores-MINI3.tscn")
 
 

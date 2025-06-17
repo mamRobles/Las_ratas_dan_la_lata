@@ -105,6 +105,7 @@ func _ready():
 	$GatoCazando.visible = false
 	$GatoCazando.play("default")
 	$CuentaAtras.play("default")
+	MusicPlayer.cambiarMusica("mini1")
 	
 	
 
@@ -240,6 +241,7 @@ func _on_fin_gato_timeout() -> void:
 	
 	
 func _on_mostrar_ganadores_timeout() -> void:
+	MusicPlayer.cambiarMusica("minijuegos")
 	get_tree().change_scene_to_file("res://MINI1/Scenes/ganadores-MINI1.tscn")
 
 
