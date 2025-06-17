@@ -35,6 +35,7 @@ func _ready() -> void:
 	posiciones  = [pos1,pos2,pos3,pos4]
 	for i in range(INICIO.num_jugadores):
 		add_player(i)
+	MusicPlayer.cambiarMusica("mini2")
 
 
 
@@ -63,4 +64,5 @@ func _on_imagenmini_2_nosfegatu_aparece() -> void:
 
 
 func _on_mostrar_ganadores_timeout() -> void:
+	MusicPlayer.cambiarMusica("minijuegos")
 	get_tree().change_scene_to_file("res://MINI2/Scenes/ganadores-MINI2.tscn")
